@@ -9,11 +9,11 @@ class KategoriController extends Controller
 {
     //kategori
     public function index(){
-        return view('landingpage.kategori.index');
+        return view('landingpage.buku.index');
     }
 
     //kategori
     public function detail(){
-        return view('landingpage.kategori.detail');
+        return view('landingpage.buku.detail');
     }
 }

@@ -6,14 +6,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
-          <li class="menu-has-children"><a href="">Buku</a>
-            <ul>
-              <li><a href="{{url('user/kategori/index')}}">Fiksi</a></li>
-              <li><a href="generic.html">Non Fiksi</a></li>
-            </ul>
-          </li>
-
-
+          <li><a href="{{url('user/buku/index')}}">Buku</a></li>
           @if (session('berhasil_login'))
           <li><a href="#price">History Peminjaman</a></li>
           <li class="menu-has-children"><a href="">Profil</a>

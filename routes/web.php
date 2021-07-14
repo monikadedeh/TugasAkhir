@@ -125,9 +125,9 @@ Route::delete('admin/kritik/delete/{id}', 'admin\KrtikController@delete')->name(
 //User Landingpage
 Route::get('/', 'landingpage\LandingController@index');
 
-//Kategori
-Route::get('user/kategori/index', 'landingpage\KategoriController@index');
-Route::get('user/kategori/detail', 'landingpage\KategoriController@detail');
+//BUKU
+Route::get('user/buku/index', 'landingpage\BukuController@index')->name('user.buku.index');
+Route::get('user/buku/detail/{id}', 'landingpage\BukuController@detail')->name('user.buku.detail');
 
 //Login user
 Route::get('user/login', 'landingpage\LoginuserController@loginuser')->name('user.login');
