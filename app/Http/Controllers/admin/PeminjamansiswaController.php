@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Model\Buku;
 use App\Model\PeminjamanSiswa;
+use App\Model\PengembalianSiswa;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,21 +32,38 @@ class PeminjamansiswaController extends Controller
 //proses update
 public function update(Request $request, $kode_peminjaman)
 {
-    $request->validate([
-        'buku_id' => 'required',
-        'durasi' => 'required',
-        'status' => 'required'
-    ]);
-    $update = [
-        'buku_id' => $request->buku_id,
-        'durasi' => $request->durasi,
-        'status' => $request->status,
-    ];
 
-    $update['buku_id'] = $request->get('buku_id');
-    $update['durasi'] = $request->get('durasi');
-    $uodate['status'] = $request->get('status');
+    $update['status'] = $request->get('status');
     PeminjamanSiswa::where('kode_peminjaman', $kode_peminjaman)->update($update);
+
+    if( $request->get('status') == "1"){
+
+        $peminjaman = PeminjamanSiswa::find($kode_peminjaman);
+        $denda = 0;
+
+        if(\Carbon\Carbon::now() > $peminjaman->tgl_selesai){
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $peminjaman->tgl_selesai);
+
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i',  \Carbon\Carbon::now());
+
+            $diff_in_days = $to->diffInDays($from);
+
+            $denda = 500 * (int)$diff_in_days;
+        }
+
+
+        $pn = PengembalianSiswa::where('kode_peminjaman', $kode_peminjaman)->first();
+        if(!$pn){
+            $pn = new PengembalianSiswa();
+            $pn->status = 1;
+            $pn->kode_peminjaman = $kode_peminjaman;
+            $pn->denda = $denda;
+            $pn->save();
+        }
+
+    }
+
+
     return redirect()->route('peminjaman.siswa.index')->with('alert', 'Data  Berhasil diperbarui');
 }
 //hapus data

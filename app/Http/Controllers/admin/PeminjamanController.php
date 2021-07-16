@@ -6,50 +6,70 @@ use App\Http\Controllers\Controller;
 use App\Model\PeminjamanGuru;
 use App\Model\Guru;
 use App\Model\Buku;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+
 
 use Illuminate\Support\Str;
 
 
 class PeminjamanController extends Controller
 {
-    //peminjaman
-    public function pinjam(){
-        $pinjam= PeminjamanGuru::with('guruRef', 'bukuRef')->get();
-        return view('admin.peminjaman_guru.index', compact('pinjam'));
+   //peminjaman
+ public function pinjaman_siswa(){
+    $pinjam= PeminjamanGuru::with('siswaRef', 'bukuRef')->get();
+    return view('admin.peminjaman_guru.index', compact('pinjam'));
+    }
+
+
+//tampil edit
+   public function edit($kode_peminjaman){
+    $siswa = User::all();
+    $buku = Buku::all();
+    $pinjam = PeminjamanGuru::with('bukuRef', 'siswaRef')->find($kode_peminjaman);
+    return view('admin.peminjaman_guru.edit', compact('pinjam', 'buku','siswa'));
+
+}
+
+//proses update
+public function update(Request $request, $kode_peminjaman)
+{
+
+    $update['status'] = $request->get('status');
+    PeminjamanGuru::where('kode_peminjaman', $kode_peminjaman)->update($update);
+
+    if( $request->get('status') == "1"){
+
+        $peminjaman = PeminjamanGuru::find($kode_peminjaman);
+        $denda = 0;
+
+        if(\Carbon\Carbon::now() > $peminjaman->tgl_selesai){
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $peminjaman->tgl_selesai);
+
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i',  \Carbon\Carbon::now());
+
+            $diff_in_days = $to->diffInDays($from);
+
+            $denda = 500 * (int)$diff_in_days;
         }
 
 
-    //tampil edit
-       public function edit($kode_peminjaman){
-        $guru = Guru::all();
-        $buku = Buku::all();
-        $pinjam = PeminjamanGuru::with('bukuRef', 'guruRef')->find($kode_peminjaman);
-        return view('admin.peminjaman_guru.edit', compact('pinjam', 'buku','guru'));
+        $pn = PeminjamanGuru::where('kode_peminjaman', $kode_peminjaman)->first();
+        if(!$pn){
+            $pn = new PeminjamanGuru();
+            $pn->status = 1;
+            $pn->kode_peminjaman = $kode_peminjaman;
+            $pn->denda = $denda;
+            $pn->save();
+        }
 
     }
 
-    //proses update
-    public function update(Request $request, $kode_peminjaman)
-    {
-        $request->validate([
-            'buku_id' => 'required',
-            'durasi' => 'required',
-            'status' => 'required'
-        ]);
-        $update = [
-            'buku_id' => $request->buku_id,
-            'durasi' => $request->durasi,
-            'status' => $request->status,
-        ];
 
-        $update['buku_id'] = $request->get('buku_id');
-        $update['durasi'] = $request->get('durasi');
-        $uodate['status'] = $request->get('status');
-        PeminjamanGuru::where('kode_peminjaman', $kode_peminjaman)->update($update);
-        return redirect()->route('peminjaman.guru.index')->with('alert', 'Data  Berhasil diperbarui');
-    }
+    return redirect()->route('peminjaman.siswa.index')->with('alert', 'Data  Berhasil diperbarui');
+}
     //hapus data
     public function delete($kode_peminjaman)
     {

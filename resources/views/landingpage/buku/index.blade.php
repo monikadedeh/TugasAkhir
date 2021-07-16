@@ -25,7 +25,7 @@
             <div class="active-course-carusel">
                 @foreach ($buku as $item)
                 <div class="single-course item">
-                    <img src="{{url('assets/images/mark.jpg')}} " class="img-fluid info-img" alt="" style="width: 300px; height:350px;">
+                    <img src="{{url('foto-buku',$item->foto )}} " class="img-fluid info-img" alt="" style="width: 300px; height:350px;">
                     <div class="details shadow">
                         <h4>{{$item->judul_buku}}</h4>
                         <p>{{$item->deskripsi}}</p>

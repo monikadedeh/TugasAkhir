@@ -21,6 +21,6 @@ class KrtikController extends Controller
     {
         DB::table('kritiksaran')->where('id', $id)->delete();
 
-        return redirect()->route('admin.krtik.index')->with('status', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.kritik.index')->with('status', 'Data Berhasil Dihapus');
     }
 }

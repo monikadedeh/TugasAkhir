@@ -19,50 +19,46 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('pengembalian.tambahdata')}}" class="btn mx-auto btn-primary mb-3">Tambah Data</a>
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Simple Data Admin
+                    Data Pengembalian Buku
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th>Kode Pengembalian</th>
-                                <th>Kode Peminjaman</th>
+                                <th>No</th>
+                                <th>Kode Pengembalian </th>
                                 <th>Judul Buku</th>
-                                <th>Tanggal Pengembalian</th>
+                                <th>Peminjam</th>
+                                <th>Tanggal Peminjaman</th>
                                 <th>Status</th>
-                                <th>Denda</th>
+                                <th>Durasi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($pjguru as $item)
                             <tr>
-                                <td>001</td>
-                                <td>001</td>
-                                <td>Kimia</td>
-                                <td>16-06-2021</td>
-                                <td>Sudah Dikembalikan</td>
-                                <td></td>
-                                 <td>
-                                    <a href="" class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></a>
-                                    <a href="{{route('pengembalian.editdata')}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
-                                 </td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>002</td>
-                                <td>B.inggris</td>
-                                <td>27-06-2021</td>
-                                <td>Belum Kembaliakan</td>
-                                <td>Rp. 5.000</td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->kode_pengembalian}}</td>
+                                <td>{{$item->bukuRef->nama_buku}}</td>
+                                <td>{{$item->guruRef->nama_guru}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->status}}</td>
+                                <td>{{$item->durasi}}</td>
                                 <td>
-                                    <a href="" class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></a>
-                                    <a href="{{route('pengembalian.editdata')}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    <form action="{{route('peminjaman.guru.delete', $item->kode_pengembalian)}}" kode_pengembalian="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
+                                        @method('delete')
+                                        <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
+                                        @csrf
+                                    </form>
+                                    <a href="{{route('peminjaman.guru.edit',$item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    <a href="{{route('peminjaman.guru.detail',$item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -34,6 +34,7 @@
                                 <th>Peminjam</th>
                                 <th>Tanggal Peminjaman</th>
                                 <th>Status</th>
+
                                 <th>Durasi</th>
                                 <th>Aksi</th>
                             </tr>

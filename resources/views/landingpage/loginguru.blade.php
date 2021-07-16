@@ -32,10 +32,10 @@
                     <div class="auth-logo">
                         <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
                     </div>
-                    <h1 class="auth-title">Log in Siswa.</h1>
+                    <h1 class="auth-title">Log in Guru.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
-                    <form class="md-float-material form-material" action="{{route('user.login.simpan')}}" method="POST" enctype="multipart/form-data">
+                    <form class="md-float-material form-material" action="{{route('user.login.guru.simpan')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('post')
                         <div class="form-group position-relative has-icon-left mb-4">

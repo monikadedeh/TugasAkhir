@@ -8,18 +8,25 @@
           <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
           <li><a href="{{url('user/buku/index')}}">Buku</a></li>
           @if (session('berhasil_login'))
-          <li><a href="#price">History Peminjaman</a></li>
+          <li><a href="{{route('landing.histori.index')}}">History Peminjaman</a></li>
           <li class="menu-has-children"><a href="">Profil</a>
             <ul>
-              <li><a href="{{route('profil.user.edit',Session::get('id'))}}">Ganti Informasi</a></li>
-              <li><a href="{{route('user.update.password',Session::get('id'))}}">Ubah Password</a></li>
-              <li><a href="{{route('user.logout')}}">Log out</a></li>
+                @if (Session::get('is_user') == "1")
+                    <li><a href="{{route('profil.user.edit',Session::get('id_user'))}}">Ganti Informasi</a></li>
+                    <li><a href="{{route('user.update.password',Session::get('id_user'))}}">Ubah Password</a></li>
+                    <li><a href="{{route('user.logout')}}">Log out</a></li>
+                @else
+                    <li><a href="{{route('profil.guru.edit',Session::get('id_guru'))}}">Ganti Informasi</a></li>
+                    <li><a href="{{route('user.guru.update.password',Session::get('id_guru'))}}">Ubah Password</a></li>
+                    <li><a href="{{route('user.logout.guru')}}">Log out</a></li>
+                @endif
+
             </ul>
           </li>
           @else
           <li><a href="{{url('user/kritik/index')}}">Kritik & Saran</a></li>
           <li><a href="{{url('user/register')}}">Register</a></li>
-          <li><a href="{{url('user/login')}}">Login</a></li>
+          <li><a data-toggle="modal" data-target=".modal-login" href="#">Login</a></li>
           @endif
         </ul>
       </nav>

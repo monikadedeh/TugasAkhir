@@ -7,7 +7,7 @@
         <div class="single-info row mt-40 align-items-center">
             <div class="col-lg-6 col-md-12 text-center no-padding info-left">
                 <div class="info-thumb">
-                    <img src="{{url('assets/images/mark.jpg')}} " class="img-fluid info-img" alt="">
+                    <img src="{{url('foto-buku',$buku->foto)}} " class="img-fluid info-img" alt="" style="width: 200px; height:250px;">
                 </div>
             </div>
             <div class="col-lg-6 col-md-10 no-padding info-rigth">
@@ -25,7 +25,7 @@
                         <div class="col-md-3">
                             <h5>Penerbit</h5>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <p>{{$buku->penerbit}}</p>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                             <p>{{$buku->kategoriRef->nama_kategori}}</p>
                         </div>
                     </div>
-                    <h4 class="mb-2">Sinopsi / Deskripsi</h4>
+                    <h4 class="mb-2">Sinopsis / Deskripsi</h4>
                     <p>{{$buku->deskripsi}}</p>
-                    <a href="{{url('peminjaman/user/index')}}" class="btn btn-primary">Pinjam</a>
+                    <a href="{{route('peminjaman.landing.index', $buku->id)}}" class="btn btn-primary">Pinjam</a>
                     </div>
             </div>
         </div>

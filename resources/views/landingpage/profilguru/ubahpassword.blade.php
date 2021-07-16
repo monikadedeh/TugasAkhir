@@ -6,7 +6,7 @@
         <div class="single-info row mt-40 align-items-center">
             <div class="col-lg-6 col-md-12 text-center no-padding info-left">
                 <div class="card-body">
-                    <img src="{{url('foto-user/'. $editpw->foto)}}" style="width:200px; height:200px;" alt="Photo" srcset="">
+                    <img src="{{url('foto-guru/'. $editpw->foto)}}" style="width:200px; height:200px;" alt="Photo" srcset="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-10 no-padding info-rigth">
@@ -20,7 +20,7 @@
                         </div>
                 @endif
                 <div class="info-content">
-                    <form class="form form-horizontal" action="{{route('user.simpan.password', $editpw->id)}}" method="post" enctype="multipart/form-data">
+                    <form class="form form-horizontal" action="{{route('user.guru.simpan.password', $editpw->id)}}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                         <div class="form-body">

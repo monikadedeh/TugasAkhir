@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\landingpage;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Model\guru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Throwable;
+use Illuminate\Support\Facades\Hash;
 
 
 
-class ProfiluserController extends Controller
+class ProfilGuruController extends Controller
 {
-     //upadate profil user
-     public function updateprofiluser(){
-        $editprofil = User::all();
-        return view('landingpage.profiluser.ganti', compact('editprofil'));
+     //upadate profil guru
+     public function updateprofilguru(){
+        $editprofil = Guru::all();
+        return view('landingpage.profilguru.ganti', compact('editprofil'));
     }
 
     //tampil edit
     public function edit($id){
-        $editprofil = User::find($id);
-        return view('landingpage.profiluser.ganti', compact('editprofil'));
+        $editprofil = Guru::find($id);
+        return view('landingpage.profilguru.ganti', compact('editprofil'));
 
     }
 
@@ -34,19 +34,19 @@ class ProfiluserController extends Controller
              if ($request->hasFile('foto')) {
                  $resorce = $request->file('foto');
                  $name   = $resorce->getClientOriginalName();
-                 $resorce->move(\base_path() . "/public/foto-user", $name);
+                 $resorce->move(\base_path() . "/public/foto-guru", $name);
              }
 
-             $editprofil = User::find($request->id);
-             $editprofil->nama_siswa = $request->nama_siswa;
+             $editprofil = Guru::find($request->id);
+             $editprofil->nama_guru = $request->nama_guru;
              $editprofil->jenis_kelamin = $request->jenis_kelamin;
              $editprofil->alamat = $request->alamat;
              $editprofil->no_telepon = $request->no_telepon;
-             $editprofil->email_siswa = $request->email_siswa;
+             $editprofil->email_guru = $request->email_guru;
              $editprofil->foto = $name;
              $editprofil->save();
              echo "Foto berhasil di upload";
-                 return redirect()->route('profil.user.edit', $id)->with('status', 'Berhasil Edit Data Buku');
+                 return redirect()->route('profil.guru.edit', $id)->with('status', 'Berhasil Edit Data Buku');
          } catch (Throwable $e) {
             // //  dd($e);
             //  dd($request->all());
@@ -54,14 +54,15 @@ class ProfiluserController extends Controller
      }
 
     //gantipassword
-    public function passworduser(){
-        return view('landingpage.profiluser.ubahpassword');
+    public function passwordguru(){
+        return view('landingpage.profilguru.ubahpassword');
     }
 
      //tampil update Password
      public function updatePw($id){
-        $editpw = DB::table('users')->where('id', $id)->first();
-        return view('landingpage.profiluser.ubahpassword', compact('editpw'));
+        $editpw = DB::table('guru')->where('id', $id)->first();
+        // dd($editpw);
+        return view('landingpage.profilguru.ubahpassword', compact('editpw'));
 
     }
 
@@ -71,12 +72,12 @@ class ProfiluserController extends Controller
 
         $newPassword = $request->newPassword;
         if ($newPassword === $request->confirmPassword) {
-            DB::table('users')->where('id', $id)->update([
+            DB::table('guru')->where('id', $id)->update([
                 'password' => Hash::make($request->newPassword),
             ]);
-            return redirect()->route('user.update.password',  $id)->with("editpw", "Berhasil Ganti Password");
+            return redirect()->route('user.guru.update.password', $id)->with("editpw", "Berhasil Ganti Password");
         } else {
-           return redirect()->route('user.update.password',  $id)->with("failedpw", "Gagal Ganti Password");
+           return redirect()->route('user.guru.update.password', $id)->with("failedpw", "Gagal Ganti Password");
         }
     }
 }

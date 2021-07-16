@@ -27,7 +27,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="email" id="Email" class="form-control"
+                                        <input type="text" id="Email" class="form-control"
                                             name="email_perpusatkawaan"  value="{{$editadmin->nama_pustakawan}}" placeholder="Email">
                                     </div>
                                     <div class="col-md-4">

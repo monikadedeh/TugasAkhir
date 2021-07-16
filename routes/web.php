@@ -123,7 +123,7 @@ Route::delete('admin/kritik/delete/{id}', 'admin\KrtikController@delete')->name(
 
 
 //User Landingpage
-Route::get('/', 'landingpage\LandingController@index');
+Route::get('/', 'landingpage\LandingController@index')->name('/');
 
 //BUKU
 Route::get('user/buku/index', 'landingpage\BukuController@index')->name('user.buku.index');
@@ -133,31 +133,50 @@ Route::get('user/buku/detail/{id}', 'landingpage\BukuController@detail')->name('
 Route::get('user/login', 'landingpage\LoginuserController@loginuser')->name('user.login');
 Route::post('user/login/simpan', 'landingpage\LoginuserController@simpan')->name('user.login.simpan');
 
+//Login guru
+Route::get('user/login/guru', 'landingpage\LoginGuruController@loginguru')->name('user.login.guru');
+Route::post('user/login/guru/simpan', 'landingpage\LoginGuruController@simpan')->name('user.login.guru.simpan');
+
 //Logout User
 Route::get('user/logout', 'landingpage\LoginuserController@logout')->name('user.logout');
 
-//register
+//Logout Guru
+Route::get('user/logout/guru', 'landingpage\LoginGuruController@logoutguru')->name('user.logout.guru');
+
+//register User
 Route::get('user/register', 'landingpage\RegisteruserController@registeruser')->name('user.register');
 Route::post('user/register/add', 'landingpage\RegisteruserController@addProcess')->name('user.register.addProses');
 
+//register Guru
+Route::get('user/register/guru', 'landingpage\RegisterGuruController@registerguru')->name('user.register.guru');
+Route::post('user/register/add/guru', 'landingpage\RegisterGuruController@addProcess')->name('user.register.addProses.guru');
+
 //peminjaman user
-Route::get('peminjaman/user/index', 'landingpage\PeminjamanuserController@index');
+Route::get('peminjaman/user/{id_buku}', 'landingpage\PeminjamanController@index')->name('peminjaman.landing.index');
+Route::post('peminjaman/user/{id_buku}', 'landingpage\PeminjamanController@simpanPeminjaman')->name('peminjaman.landing.save');
 
 //Ganti informasi user
-Route::get('profil/user/edit/{id}', 'landingpage\ProfiluserController@edit')->name('profil.user.edit');
+Route::get('profil/user/edit/{id}', 'landingpage\ProfiluserController@edit')->name('profil.user.edit')->middleware('CekLoginUser');
 Route::get('profil/user/update/{id}', 'landingpage\ProfiluserController@updateprofiluser')->name('profil.user.update');
 Route::patch('profil/user/simpan/{id}', 'landingpage\ProfiluserController@update')->name('profil.user.simpan');
 
-//Forgot profil
+//Ganti informasi guru
+Route::get('profil/guru/edit/{id}', 'landingpage\ProfilGuruController@edit')->name('profil.guru.edit')->middleware('CekLoginUser');
+Route::get('profil/guru/update/{id}', 'landingpage\ProfilGuruController@updateprofilguru')->name('profil.guru.update')->middleware('CekLoginUser');
+Route::patch('profil/guru/simpan/{id}', 'landingpage\ProfilGuruController@update')->name('profil.guru.simpan');
+
+//ubah pw user
 Route::get('user/update/password/{id}', 'landingpage\ProfiluserController@updatepw')->name('user.update.password');
 Route::patch('user/simpan/password/{id}', 'landingpage\ProfiluserController@updatePassword')->name('user.simpan.password');
 
+//ubah pw guru
+Route::get('user/guru/update/password/{id}', 'landingpage\ProfilGuruController@updatepw')->name('user.guru.update.password');
+Route::patch('user/guru/simpan/password/{id}', 'landingpage\ProfilGuruController@updatePassword')->name('user.guru.simpan.password');
+
 //History Peminjaman
-Route::get('user/history', 'landingpage\HistoryController@index');
-Route::get('user/history/detail', 'landingpage\HistoryController@detail');
+Route::get('user/history', 'landingpage\HistoryController@index')->name('landing.histori.index')->middleware('CekLoginUser');
+Route::get('user/history/detail/{kd_peminjaman}', 'landingpage\HistoryController@detail')->name('landing.histori.detail')->middleware('CekLoginUser');
 
 //Kritik dan saran
 Route::get('user/kritik/index', 'landingpage\KritikController@index')->name('user.kritik.index');
 Route::post('user/kritik/simpan', 'landingpage\KritikController@simpan')->name('user.kritik.simpandata');
-
-

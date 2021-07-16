@@ -42,6 +42,8 @@
 
 			<!-- End testomial Area -->
 
+            {{-- modal --}}
+            @include('landingpage.layout.modal')
 
 			<!-- start footer Area -->
 			{{-- footer --}}
