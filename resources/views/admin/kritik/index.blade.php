@@ -28,11 +28,12 @@
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
-                            <tr>
+                            <tr>detail
                                 <th>No </th>
                                 <th>Nama Lengkap</th>
                                 <th>Krtik</th>
                                 <th>Saran</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,12 +44,19 @@
                                 <td>{{$item->nama_lengkap}}</td>
                                 <td>{{$item->kritik}}</td>
                                 <td>{{$item->saran}}</td>
+                                <td> @if($item->status  == 0)
+                                    Tidak Konfimasi
+                                    @else
+                                    Konfimasi
+                                    @endif
+                                </td>
                                 <td>
                                     <form action="{{route('admin.kritik.delete', $item->id)}}" id="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
                                         @method('delete')
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
+                                    <a href="{{route('admin.kritik.edit', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach

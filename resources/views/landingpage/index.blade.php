@@ -55,8 +55,41 @@
                         <p> Melaksanakan Pengembangan penilaian kelas X, XI, dan XII untuk semua mata pelajaran. </p>
                         <p> Menciptakan lingkungan pendidikan yang nyaman dan kondusif.</p>
                     </p>
+                </div>
+            </div>
+        </div>
+      </div>
+ </section>
+ <section class="call-to-action-area section-gap">
+    <div class="container">
+        <div class="row justify-content-center top">
+            <div class="col-lg-12">
+                <h1 class="text-white text-center">Kritik dan Saran</h1>
 
+                <div class="row">
+                    <div class="active-tstimonial-carusel">
+                        @foreach ($kritik as $item)
+                        <div class="single-testimonial item">
+                            <tbody>
+                                <tr>
+                                    <h4>Kritik</h4>
+                                    <p class="desc">
+                                        <td>{{$item->kritik}}</td>
+                                    </p>
+                                    <h4>Saran</h4>
+                                    <p class="desc">
+                                        <td>{{$item->saran}}</td>
+                                    </p>
+                                    <h4>Nama</h4>
+                                    <p class="desc">
+                                        <td>{{$item->nama_lengkap}}</td>
+                                    </p>
+                                </tr>
+                            </tbody>
+                        </div>
+                        @endforeach
                     </div>
+                </div>
             </div>
         </div>
     </div>

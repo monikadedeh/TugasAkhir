@@ -33,7 +33,7 @@
                                 <th>Judul Buku</th>
                                 <th>Penerbit </th>
                                 <th>Penulis </th>
-                                <th>Stok Buku</th>
+                                <th>Stok</th>
                                 <th>Kategori</th>
                                 <th>Aksi</th>
                             </tr>

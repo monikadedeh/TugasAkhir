@@ -32,15 +32,21 @@
                             </a>
                         </li>
                         <li class="sidebar-item ">
-                            <a href="{{url('guru/index')}}" class='sidebar-link'>
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <span>Guru</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item ">
                             <a href="{{url('siswa/index')}}" class='sidebar-link'>
                                 <i class="fas fa-users"></i>
                                 <span>Siswa</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="{{route('kelas.index')}}" class='sidebar-link'>
+                                <i class="fas fa-users"></i>
+                                <span>Kelas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="{{url('guru/index')}}" class='sidebar-link'>
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Guru</span>
                             </a>
                         </li>
                         <li class="sidebar-item ">
@@ -60,6 +66,13 @@
                                 <i class="far fa-list-alt"></i>
                                 <span>Kritik & Saran</span>
                             </a>
+                        </li>
+                        </li>
+                        <li class="sidebar-item ">
+                        <a href="{{route('admin.laporan.index')}}" class='sidebar-link'>
+                            <i class="far fa-list-alt"></i>
+                            <span>Laporan</span>
+                        </a>
                         </li>
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
@@ -89,8 +102,19 @@
                                 </li>
                             </ul>
                          </li>
-
-
+                         <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="far fa-address-book"></i>
+                                <span>Data Pengunjung</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="{{url('admin/pengunjung/guru/index')}}">Data Guru</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{url('admin/pengunjung/siswa/index')}}">Data Siswa</a>
+                                </li>
+                            </ul>
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-user-circle"></i>

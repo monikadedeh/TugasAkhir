@@ -45,9 +45,18 @@
                             <p>{{$buku->kategoriRef->nama_kategori}}</p>
                         </div>
                     </div>
-                    <h4 class="mb-2">Sinopsis / Deskripsi</h4>
-                    <p>{{$buku->deskripsi}}</p>
-                    <a href="{{route('peminjaman.landing.index', $buku->id)}}" class="btn btn-primary">Pinjam</a>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Stok Buku</h5>
+                        </div>
+                        <div class="col-md-7 form-group">
+                            <p>{{$buku->stok}}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="mb-2">Sinopsis / Deskripsi</h4>
+                        <p >{{$buku->deskripsi}}</p>
+                        <a href="{{route('peminjaman.landing.index', $buku->id)}}" class="btn btn-primary">Pinjam</a>
                     </div>
             </div>
         </div>

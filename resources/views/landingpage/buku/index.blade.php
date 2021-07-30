@@ -28,7 +28,7 @@
                     <img src="{{url('foto-buku',$item->foto )}} " class="img-fluid info-img" alt="" style="width: 300px; height:350px;">
                     <div class="details shadow">
                         <h4>{{$item->judul_buku}}</h4>
-                        <p>{{$item->deskripsi}}</p>
+                        <p> {{ Illuminate\Support\Str::limit($item->deskripsi, 100) }}</p>
                         <a href="{{route('user.buku.detail', $item->id)}}" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>

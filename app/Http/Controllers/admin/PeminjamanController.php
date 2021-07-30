@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\PeminjamanGuru;
 use App\Model\Guru;
 use App\Model\Buku;
+use App\Model\PengembalianGuru;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,18 +19,18 @@ use Illuminate\Support\Str;
 class PeminjamanController extends Controller
 {
    //peminjaman
- public function pinjaman_siswa(){
-    $pinjam= PeminjamanGuru::with('siswaRef', 'bukuRef')->get();
+ public function pinjam(){
+    $pinjam= PeminjamanGuru::with('guruRef', 'bukuRef')->get();
     return view('admin.peminjaman_guru.index', compact('pinjam'));
     }
 
 
 //tampil edit
    public function edit($kode_peminjaman){
-    $siswa = User::all();
+    $guru = User::all();
     $buku = Buku::all();
-    $pinjam = PeminjamanGuru::with('bukuRef', 'siswaRef')->find($kode_peminjaman);
-    return view('admin.peminjaman_guru.edit', compact('pinjam', 'buku','siswa'));
+    $pinjam = PeminjamanGuru::with('bukuRef', 'guruRef')->find($kode_peminjaman);
+    return view('admin.peminjaman_guru.edit', compact('pinjam', 'buku','guru'));
 
 }
 
@@ -56,19 +57,23 @@ public function update(Request $request, $kode_peminjaman)
         }
 
 
-        $pn = PeminjamanGuru::where('kode_peminjaman', $kode_peminjaman)->first();
+        $pn = PengembalianGuru::where('kode_peminjaman', $kode_peminjaman)->first();
         if(!$pn){
-            $pn = new PeminjamanGuru();
+            $pn = new PengembalianGuru();
             $pn->status = 1;
             $pn->kode_peminjaman = $kode_peminjaman;
             $pn->denda = $denda;
             $pn->save();
+
+            $buku = Buku::find($peminjaman->buku_id);
+            $buku->stok = (int)$buku->stok + 1;
+            $buku->save();
         }
 
     }
 
 
-    return redirect()->route('peminjaman.siswa.index')->with('alert', 'Data  Berhasil diperbarui');
+    return redirect()->route('peminjaman.guru.index')->with('alert', 'Data  Berhasil diperbarui');
 }
     //hapus data
     public function delete($kode_peminjaman)

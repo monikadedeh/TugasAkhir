@@ -19,43 +19,42 @@
                 </div>
             </div>
         </div>
+
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Data Pengembalian Buku
+                    Data Pengembalian Buku Guru
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table1">
+                    <table id="example" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Kode Pengembalian </th>
-                                <th>Judul Buku</th>
-                                <th>Peminjam</th>
-                                <th>Tanggal Peminjaman</th>
+                                <th>Kode Peminjaman</th>
                                 <th>Status</th>
-                                <th>Durasi</th>
+                                <th>Denda</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pjguru as $item)
+                            @foreach($pjguru as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->kode_pengembalian}}</td>
-                                <td>{{$item->bukuRef->nama_buku}}</td>
-                                <td>{{$item->guruRef->nama_guru}}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td>{{$item->status}}</td>
-                                <td>{{$item->durasi}}</td>
+                                <td>{{$item->kode_peminjaman}}</td>
+                                    @if($item->status == 0)
+                                    <td>Dikembalikan</td>
+                                    @endif
+                                <td>{{$item->denda}}</td>
                                 <td>
-                                    <form action="{{route('peminjaman.guru.delete', $item->kode_pengembalian)}}" kode_pengembalian="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
+                                    <form action="{{route('pengembalian.guru.delete', $item->kode_pengembalian)}}" kode_pengembalian="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
                                         @method('delete')
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
-                                    <a href="{{route('peminjaman.guru.edit',$item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
-                                    <a href="{{route('peminjaman.guru.detail',$item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('pengembalian.guru.edit', $item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    <a href="{{route('pengembalian.guru.detail',$item->kode_pengembalian)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
                             @endforeach

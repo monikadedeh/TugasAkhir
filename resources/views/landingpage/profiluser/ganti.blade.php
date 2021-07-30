@@ -60,6 +60,23 @@
                                                     name="email_siswa" value="{{$editprofil->email_siswa}}" placeholder="Masukan Email Anda">
                                             </div>
                                             <div class="col-md-4">
+                                                <label>Kelas</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                {{-- <select name="id_kelas" id="" class="form-control">
+                                                    <option value="pilih">Pilih</option>
+                                                    @foreach ($kelas as $k )
+                                                    <option value="{{$k->id_kelas}}">{{$k->kelas}} {{$k->jurusan}}</option>
+                                                    @endforeach
+                                                </select> --}}
+                                                <select name="id_kelas" class="form-control">
+                                                    <option value="{{$editprofil->kelasRef->id_kelas}}" selected>{{$editprofil->kelasRef->kelas}} {{$editprofil->kelasRef->jurusan}} </option>
+                                                    @foreach ( $kelas as $item )
+                                                        <option value="{{$item->id_kelas}}">{{$item->kelas}} {{$item->jurusan}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <label>Foto</label>
                                             </div>
                                             <div class="col-md-8 form-group">

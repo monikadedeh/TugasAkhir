@@ -42,4 +42,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+    public function kelasRef()
+    {
+        return $this->hasOne(Kelas::class, 'id_kelas', 'id_kelas');
+    }
 }

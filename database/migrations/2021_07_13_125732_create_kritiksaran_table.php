@@ -18,6 +18,7 @@ class CreateKritiksaranTable extends Migration
             $table->char('nama_lengkap', 255);
             $table->char('kritik',255);
             $table->char('saran',255);
+            $table->string('status',255);
             $table->timestamps();
         });
     }

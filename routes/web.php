@@ -38,18 +38,17 @@ Route::get('admin/register', 'admin\RegisterController@regis')->name('admin.regi
 Route::post('admin/register/add', 'admin\RegisterController@addProcess')->name('admin.register.addProses');
 
 
-//Update Profil
+//Ganti Profil
 Route::get('profil/admin/edit/{id}', 'admin\ProfilController@edit')->name('profil.admin.edit')->middleware('CekLoginAdmin');;
-Route::get('profil/admin/update/{id}', 'admin\ProfilController@updateProfil')->name('profil.admin.update');
-Route::patch('profil/admin/simpan/{id}', 'admin\ProfilController@update')->name('profil.admin.simpan');
 
+//update password
+Route::get('profil/admin/update/password/{id}', 'admin\ProfilController@updatePw')->name('admin.update.password');
+Route::patch('profil/admin/simpan/{id}', 'admin\ProfilController@updatePassword')->name('profil.password.simpan');
 
-
-//Forgot profil
-Route::get('admin/update/password/{id}', 'admin\ProfilController@updatepw')->name('admin.update.password')->middleware('CekLoginAdmin');
-Route::patch('admin/simpan/password/{id}', 'admin\ProfilController@updatePassword')->name('admin.simpan.password');
-
-
+//forgotPW
+    Route::get('admin/forgot', 'admin\ForgotController@index')->name('admin.forgot');
+    Route::post('admin/forgotPw/no_telepon', 'admin\ForgotController@cariTelepon')->name('admin.forgotpw.no_telepon');
+    Route::patch('admin/forgot/password', 'admin\ForgotController@forgotpw')->name('admin.forgot.password');
 
 //Admin
 Route::get('admin/index', 'admin\AdminController@index')->name('admin.index')->middleware('CekLoginAdmin');
@@ -57,6 +56,7 @@ Route::post('admin/simpan', 'admin\AdminController@simpan')->name('admin.simpand
 Route::get('admin/edit/{id}', 'admin\AdminController@edit')->name('admin.editdata');
 Route::patch('admin/edit/update/{id}', 'admin\AdminController@update')->name('admin.update');
 Route::delete('admin/delete/{id}', 'admin\AdminController@delete')->name('admin.delete');
+Route::get('admin/detail/{id}', 'admin\AdminController@detail')->name('admin.detaildata');
 
 //guru
 Route::get('guru/index', 'admin\GuruController@index')->name('guru.index')->middleware('CekLoginAdmin');
@@ -78,6 +78,15 @@ Route::get('buku/edit/{id}', 'admin\BukuController@edit')->name('buku.editdata')
 Route::patch('buku/edit/update/{id}', 'admin\BukuController@update')->name('buku.update');
 Route::get('buku/detail/{id}', 'admin\BukuController@detail')->name('buku.detaildata');
 Route::delete('buku/delete/{id}', 'admin\BukuController@delete')->name('buku.delete');
+
+//Kelas
+Route::get('kelas/index', 'admin\KelasController@index')->name('kelas.index')->middleware('CekLoginAdmin');
+Route::get('kelas/tambah', 'admin\KelasController@tambah')->name('kelas.tambah');
+Route::post('kelas/simpan', 'admin\KelasController@simpan')->name('kelas.simpan');
+Route::get('kelas/edit/{id_kelas}', 'admin\KelasController@edit')->name('kelas.edit');
+Route::patch('kelas/edit/update/{id_kelas}', 'admin\KelasController@update')->name('kelas.update');
+Route::get('kelas/detail/{id_kelas}', 'admin\KelasController@detail')->name('kelas.detail');
+Route::delete('kelas/delete/{id_kelas}', 'admin\KelasController@delete')->name('kelas.delete');
 
 
 //Kategori
@@ -106,27 +115,54 @@ Route::get('peminjaman/siswa/detail/{kode_peminjaman}', 'admin\PeminjamansiswaCo
 
 
 //Pengembalian guru
+Route::get('pengembalian/guru/edit/{pjguru}', 'admin\PengembalianController@editData')->name('pengembalian.guru.edit');
 Route::get('pengembalian/guru/index', 'admin\PengembalianController@pengembalian_guru')->name('pengembalian.guru.index')->middleware('CekLoginAdmin');
-Route::get('pengembalian/guru/tambah', 'admin\PengembalianController@tambah')->name('pengembalian.tambahdata');
-Route::get('pengembalian/guru/edit', ' admin\PengembalianController@edit')->name('pengembalian.editdata');
+Route::get('pengembalian/guru/tambah/{kode_peminjaman}', 'admin\PengembalianController@formTambah')->name('pengembalian.guru.tambah');
+Route::post('pengembalian/guru/postTambah', 'admin\PengembalianController@tambahPengembalian')->name('pengembalian.guru.postTambah');
+Route::patch('pengembalian/guru/edit/update/{kode_pengembalian}', 'admin\PengembalianController@editProses')->name('pengembalian.guru.edit.update');
+Route::delete('pengembalian/guru/delete/{kode_pengembalian}', 'admin\PengembalianController@delete')->name('pengembalian.guru.delete');
+Route::get('pengembalian/guru/detail/{kode_pengembalian}', 'admin\PengembalianController@detail')->name('pengembalian.guru.detail');
 
 
 //Pengembalian siswa
 Route::get('pengembalian/siswa/index', 'admin\PengembaliansiswaController@pengembalian_siswa')->name('pengembalian.siswa.index')->middleware('CekLoginAdmin');
-Route::get('pengembalian/siswa/tambah', 'admin\PengembaliansiswaController@tambah')->name('pengembalian_siswa.tambahdata');
-Route::get('pengembalian/siswa/edit', ' admin\PengembaliansiswaController@edit')->name('pengembalian_siswa.editdata');
+Route::get('pengembalian/siswa/tambah{kode_peminjaman}', 'admin\PengembaliansiswaController@formTambah')->name('pengembalian.siswa.tambah');
+Route::get('pengembalian/siswa/edit/{pjguru}', 'admin\PengembaliansiswaController@editData')->name('pengembalian.siswa.edit');
+Route::post('pengembalian/siswa/postTambah', 'admin\PengembaliansiswaController@tambahPengembalian')->name('pengembalian.siswa.postTambah');
+Route::patch('pengembalian/siswa/edit/update/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@editProses')->name('pengembalian.siswa.edit.update');
+Route::delete('pengembalian/siswa/delete/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@delete')->name('pengembalian.siswa.delete');
+Route::get('pengembalian/siswa/detail/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@detail')->name('pengembalian.siswa.detail');
+
 
 //Krtik & Saran
 Route::get('admin/kritik/index', 'admin\KrtikController@index')->name('admin.kritik.index')->middleware('CekLoginAdmin');
 Route::delete('admin/kritik/delete/{id}', 'admin\KrtikController@delete')->name('admin.kritik.delete');
+Route::get('admin/kritik/edit/{id}', 'admin\KrtikController@editData')->name('admin.kritik.edit');
+Route::patch('admin/kritik/edit/update/{id}', 'admin\KrtikController@editProses')->name('admin.kritik.edit.update');
+
+//Pengunjung Guru
+Route::get('admin/pengunjung/guru/index', 'admin\PengujungGuruContoller@index')->name('admin.pengunjung.guru.index')->middleware('CekLoginAdmin');
+Route::delete('admin/pengunjung/guru/delete/{id}', 'admin\PengujungGuruContoller@delete')->name('admin.pengunjung.guru.delete');
+
+//Pengunjung Siswa
+Route::get('admin/pengunjung/siswa/index', 'admin\PengujungSiswaContoller@index')->name('admin.pengunjung.index')->middleware('CekLoginAdmin');
+Route::delete('admin/pengunjung/siswa/delete/{id}', 'admin\PengujungSiswaContoller@delete')->name('admin.pengunjung.delete');
+
+//Laporan
+Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.laporan.index')->middleware('CekLoginAdmin');
 
 
+
+
+
+
+//////////////////////////////////////////////////////USER/////////////////////////////////////////////
 
 //User Landingpage
 Route::get('/', 'landingpage\LandingController@index')->name('/');
 
 //BUKU
-Route::get('user/buku/index', 'landingpage\BukuController@index')->name('user.buku.index');
+Route::get('user/buku/index', 'landingpage\BukuController@index')->name('user.buku.index')->middleware('CekLoginUser');
 Route::get('user/buku/detail/{id}', 'landingpage\BukuController@detail')->name('user.buku.detail');
 
 //Login user
@@ -143,9 +179,20 @@ Route::get('user/logout', 'landingpage\LoginuserController@logout')->name('user.
 //Logout Guru
 Route::get('user/logout/guru', 'landingpage\LoginGuruController@logoutguru')->name('user.logout.guru');
 
+//forgotPW siswa
+Route::get('user/forgot/siswa', 'landingpage\ForgotSiswaController@index')->name('user.forgot.siswa');
+Route::post('user/forgotPw/no_telepon/siswa', 'landingpage\ForgotSiswaController@cariTelepon')->name('user.forgotpw.no_telepon.siswa');
+Route::patch('user/forgot/password/siswa', 'landingpage\ForgotSiswaController@forgotpw')->name('user.forgot.password.siswa');
+
+//forgotPW guru
+Route::get('user/forgot/guru', 'landingpage\ForgotGuruController@index')->name('user.forgot.guru');
+Route::post('user/forgotPw/no_telepon/guru', 'landingpage\ForgotGuruController@cariTelepon')->name('user.forgotpw.no_telepon.guru');
+Route::patch('user/forgot/password/guru', 'landingpage\ForgotGuruController@forgotpw')->name('user.forgot.password.guru');
+
+
 //register User
 Route::get('user/register', 'landingpage\RegisteruserController@registeruser')->name('user.register');
-Route::post('user/register/add', 'landingpage\RegisteruserController@addProcess')->name('user.register.addProses');
+Route::post('user/register/addProses', 'landingpage\RegisteruserController@addProcess')->name('user.register.addProses');
 
 //register Guru
 Route::get('user/register/guru', 'landingpage\RegisterGuruController@registerguru')->name('user.register.guru');
@@ -180,3 +227,8 @@ Route::get('user/history/detail/{kd_peminjaman}', 'landingpage\HistoryController
 //Kritik dan saran
 Route::get('user/kritik/index', 'landingpage\KritikController@index')->name('user.kritik.index');
 Route::post('user/kritik/simpan', 'landingpage\KritikController@simpan')->name('user.kritik.simpandata');
+
+//Data Pengujung guru
+Route::get('user/pengujung/index', 'landingpage\PengujungContoller@index')->name('user.pengujung.index');
+Route::post('user/pengujung/simpan', 'landingpage\PengujungContoller@simpanGuru')->name('user.pengujung.simpan');
+Route::post('user/pengujung/siswa/simpan', 'landingpage\PengujungContoller@simpanSiswa')->name('user.pengujung.siswa.simpan');

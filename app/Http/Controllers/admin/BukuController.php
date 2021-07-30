@@ -4,6 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Buku;
+use App\Model\PeminjamanGuru;
+use App\Model\PeminjamanSiswa;
+use App\Model\PengembalianGuru;
+use App\Model\PengembalianSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Throwable;
@@ -97,6 +101,14 @@ class BukuController extends Controller
      //Tampil Detail
      public function detail($id){
         $buku= DB::table('buku')->where('id', $id)->first();
-        return view('admin.buku.detail', compact('buku'));
+        $pinjam_guru = PeminjamanGuru::where('buku_id', $id)->count();
+        $pinjam_siswa = PeminjamanSiswa::where('buku_id', $id)->count();
+
+        $pinjam_guruu = PeminjamanGuru::where('buku_id', $id)->first();
+        $pinjam_siswaa = PeminjamanSiswa::where('buku_id', $id)->first();
+        $kembali_guru = PengembalianGuru::where('kode_peminjaman', $pinjam_guruu)->count();
+        $kembali_siswa = PengembalianSiswa::where('kode_peminjaman', $pinjam_siswaa)->count();
+
+        return view('admin.buku.detail', compact('buku', 'pinjam_guru', 'pinjam_siswa', 'pinjam_siswaa', 'pinjam_guruu', 'kembali_siswa', 'kembali_guru'));
         }
 }

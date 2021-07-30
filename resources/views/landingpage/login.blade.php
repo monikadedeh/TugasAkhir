@@ -33,6 +33,16 @@
                         <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
                     </div>
                     <h1 class="auth-title">Log in Siswa.</h1>
+                    <h1 class="auth-title">Log in.</h1>
+                        @if (session()->has('message1'))
+                            <div class="alert bg-danger text-white  alert-danger" role="alert">
+                                 {{ Session::get('message1') }}
+                            </div>
+                         @elseif(session()->has('message2'))
+                             <div class="alert bg-danger text-white  alert-danger" role="alert">
+                                 {{ Session::get('message2') }}
+                            </div>
+                         @endif
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
                     <form class="md-float-material form-material" action="{{route('user.login.simpan')}}" method="POST" enctype="multipart/form-data">
@@ -59,10 +69,11 @@
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">Don't have an account? <a href="auth-register.html"
+                        <p class="text-gray-600">Don't have an account?
+                            <a href="{{route('user.register')}}"
                                 class="font-bold">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
+                        <p><a class="font-bold" href="{{route('user.forgot.siswa')}}">Forgot password?</a>.</p>
                     </div>
                 </div>
             </div>

@@ -28,8 +28,7 @@ class RegisteruserController extends Controller
             $UserLogin->nama_siswa = $request->nama_siswa;
             $UserLogin->username = $request->username;
             $UserLogin->password = Hash::make($request->password);
-
-
+            $UserLogin->id_kelas = $request->id_kelas;
             $UserLogin->save();
             //
             if($UserLogin->save()){

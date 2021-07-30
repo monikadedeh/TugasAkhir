@@ -81,6 +81,9 @@ class PeminjamanController extends Controller
         }
 
         if($peminjaman){
+            $buku = Buku::find($id_buku);
+            $buku->stok = (int)$buku->stok - 1;
+            $buku->save();
             return redirect()->route('landing.histori.index')->with('success','Peminjaman buku berhasil');
         }else{
             return redirect()->back()->with('failed','Peminjaman buku gagal');

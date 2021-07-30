@@ -3,7 +3,19 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Kelas;
+use App\KritikSaran;
+use App\Model\Buku;
+use App\Model\guru;
+use App\Model\KategoriBuku;
 use App\Model\PegawaiPerpustakaan;
+use App\Model\PeminjamanGuru;
+use App\Model\PeminjamanSiswa;
+use App\Model\PengembalianGuru;
+use App\Model\PengembalianSiswa;
+use App\PengunjungGuru;
+use App\PengunjungSiswa;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +26,22 @@ class LoginController extends Controller
 {
     //dashboard
     public function dashboard(){
-        return view('admin.dashboard');
+        $admin = PegawaiPerpustakaan::count();
+        $guru = Guru::count();
+        $siswa = User::count();
+        $buku = Buku::count();
+        $kritik = KritikSaran::count();
+        $kategori= KategoriBuku::count();
+        $datapengunjung = PengunjungGuru::count();
+        $datapengunjungsiswa = PengunjungSiswa::count();
+        $pinjamguru = PeminjamanGuru::count();
+        $pinjamsiswa = PeminjamanSiswa::count();
+        $pengembalianguru = PengembalianGuru::count();
+        $pengembaliansiswa = PengembalianSiswa::count();
+        $kelas = Kelas::count();
+        // $laporan = ::count();
+        return view('admin.dashboard',compact('admin','buku','guru','siswa','kritik','kategori',
+        'datapengunjung','datapengunjungsiswa','pinjamguru', 'pinjamsiswa', 'pengembalianguru','pengembaliansiswa','kelas'));
     }
 
     public function masuk(){

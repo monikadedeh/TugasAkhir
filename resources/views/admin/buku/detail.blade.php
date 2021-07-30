@@ -45,7 +45,7 @@
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$buku->stok}}
+                                       {{$buku->stok}}
                                     </div>
                                     <div class="col-md-4">
                                         <label>Kategori </label>

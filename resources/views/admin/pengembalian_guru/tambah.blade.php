@@ -1,4 +1,4 @@
-{{-- @extends('admin.master')
+@extends('admin.master')
 @section('title', 'Admin Perpustakaan')
 
 @section('content')
@@ -7,46 +7,43 @@
         <div class="col-md-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Tambah Data</h4>
+                    <h4 class="card-title">Pengembalian Buku Guru</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" action="{{url('admin/simpan')}}" method="post" enctype="multipart/form-data">
+                        <form class="form form-horizontal" action="/pengembalian/guru/postTambah" method="post" enctype="multipart/form-data">
                             @method('post')
                             @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Nama </label>
+                                        <label>Kode Pengembalian</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="Nama" class="form-control"
-                                            name="nama_pustakawan" placeholder="Nama">
+                                            name="kode_pengembalian" placeholder="Masukan Kode Pengembalian">
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Email</label>
+                                        <label>Kode Peminjaman</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="email" id="Email" class="form-control"
-                                            name="email_perpusatkawaan" placeholder="Email">
+                                        <input type="text" id="Nama" class="form-control"
+                                        value="{{$pinjam->kode_peminjaman}}" name="kode_peminjaman">
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Alamat </label>
+                                        <label>Status</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="Alamat" class="form-control"
-                                            name="alamat" placeholder="Alamat">
+                                        <select name="status" class="form-control">
+                                            <Option value="0">Di kembalikan</Option>
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>No Telepon </label>
+                                        <label>Denda</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="No telepon" class="form-control"
-                                            name="no_telepon" placeholder="No telepon">
-                                    </div>
-                                    <div class="col-12 col-md-8 offset-md-4 form-group">
-                                        <div class='form-check'>
-                                        </div>
+                                        <input type="text" id="Nama" class="form-control"
+                                            name="denda" placeholder="Masukan denda">
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">
                                         <button type="submit"
@@ -60,4 +57,4 @@
             </div>
         </div>
 </div>
-@endsection --}}
+@endsection

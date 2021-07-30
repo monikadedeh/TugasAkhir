@@ -23,7 +23,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Simple Data Siswa
+                    Data Siswa
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
@@ -34,6 +34,7 @@
                                 <th>Email Siswa</th>
                                 <th>No Telepon</th>
                                 <th>Username</th>
+                                <th>Kelas</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                 <td>{{$item->email_siswa}}</td>
                                 <td>{{$item->no_telepon}}</td>
                                 <td>{{$item->username}}</td>
+                                <td>{{$item->kelasRef->jurusan}} {{$item->kelasRef->kelas}}</td>
                                 <td>
                                     <form action="{{route('siswa.delete', $item->id)}}" id="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
                                         @method('delete')

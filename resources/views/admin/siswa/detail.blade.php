@@ -40,6 +40,14 @@
                                         {{$siswa->username}}
                                     </div>
                                     <div class="col-md-4">
+                                        <label>Kelas </label>
+                                    </div><div class="col-1">
+                                        <p>:</p>
+                                    </div>
+                                    <div class="col-md-7 form-group">
+                                        {{$siswa->kelasRef->jurusan}} {{$siswa->kelasRef->kelas}}
+                                    </div>
+                                    <div class="col-md-4">
                                         <label>Jenis Kelamin </label>
                                     </div><div class="col-1">
                                         <p>:</p>

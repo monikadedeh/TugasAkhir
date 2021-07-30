@@ -21,7 +21,7 @@
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$detail->bukuRef->nama_buku}}
+                                        {{$detail->peminjamanRef->bukuRef->nama_buku}}
                                     </div>
                                     <div class="col-md-4">
                                         <label>Nama Guru</label>
@@ -29,7 +29,7 @@
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$detail->guruRef->nama_guru}}
+                                        {{$detail->peminjamanRef->guruRef->nama_guru}}
                                     </div>
                                     <div class="col-md-4">
                                         <label>Kode Pengembalian</label>
@@ -40,20 +40,12 @@
                                         {{$detail->kode_pengembalian}}
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Tanggal Pinjam</label>
+                                        <label>Tanggal Pengembalian</label>
                                     </div><div class="col-1">
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$detail->created_at->isoFormat('dddd, D MMMM Y')}}
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Durasi</label>
-                                    </div><div class="col-1">
-                                        <p>:</p>
-                                    </div>
-                                    <div class="col-md-7 form-group">
-                                        {{$detail->durasi}}
+                                        {{$detail->created_at}}
                                     </div>
                                     <div class="col-md-4">
                                         <label>Status</label>

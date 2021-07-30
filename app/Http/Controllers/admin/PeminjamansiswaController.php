@@ -59,6 +59,10 @@ public function update(Request $request, $kode_peminjaman)
             $pn->kode_peminjaman = $kode_peminjaman;
             $pn->denda = $denda;
             $pn->save();
+
+            $buku = Buku::find($peminjaman->buku_id);
+            $buku->stok = (int)$buku->stok + 1;
+            $buku->save();
         }
 
     }

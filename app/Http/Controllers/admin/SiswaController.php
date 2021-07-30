@@ -13,13 +13,13 @@ class SiswaController extends Controller
 {
     //Siswa
     public function index(){
-        $siswa= User::all();
+        $siswa= User::with('kelasRef')->get();
         return view('admin.siswa.index', compact('siswa'));
     }
 
      //Tampil Detail
      public function detail($id){
-        $siswa= DB::table('users')->where('id', $id)->first();
+        $siswa= User::where('id', $id)->with('kelasRef')->first();
         return view('admin.siswa.detail', compact('siswa'));
         }
 

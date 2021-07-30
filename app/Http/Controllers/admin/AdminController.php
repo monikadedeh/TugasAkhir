@@ -18,30 +18,6 @@ class AdminController extends Controller
     return view('admin.admin.index', compact('admin'));
     }
 
-    // //Halaman Tambah
-    // public function tambah(){
-    //     return view('admin.admin.tambah');
-    // }
-
-    // //proses tambah Admin
-    // public function simpan(Request $request)
-    // {
-    //     try {
-    //         $admin = new PegawaiPerpustakaan();
-    //         $admin->nama_pustakawan = $request->nama_pustakawan;
-    //         $admin->email_perpusatkawaan = $request->email_perpusatkawaan;
-    //         $admin->alamat = $request->alamat;
-    //         $admin->jenis_kelamin = $request->jenis_kelamin;
-    //         $admin->no_telepon= $request->no_telepon;
-    //         $admin->save();
-
-        //     return redirect()->route('admin.index')->with('status', 'Berhasil Menambahkan Data Merek Kendaraan');
-        // } catch (Throwable $e) {
-        //     return redirect()->route('admin.index')->with('status', 'Berhasil Menambahkan Data Merek Kendaraan');
-        // }
-    // }
-
-
     //tampil edit
       public function edit($id){
         $editadmin = PegawaiPerpustakaan::find($id);
@@ -67,4 +43,10 @@ class AdminController extends Controller
 
         return redirect()->route('admin.index')->with('status', 'Data Berhasil Dihapus');
     }
+
+     //Tampil Detail
+     public function detail($id){
+        $admindetail= DB::table('pegawai_perpustakaan')->where('id', $id)->first();
+        return view('admin.admin.detail', compact('admindetail'));
+        }
 }

@@ -7,9 +7,9 @@
             </div>
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-lg-12">
                         <div class="row">
-                            <div class="col-8 col-lg-4 col-md-8">
+                            <div class="col-8 col-lg-5 col-md-8">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -20,13 +20,14 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <h6 class="text-muted font-semibold">Admin</h6>
-                                                <h6 class="font-extrabold mb-0">3</h6>
+                                                <h6 class="font-extrabold mb-0">{{$admin}}</h6>
+                                                <a href="{{route('admin.kritik.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4 col-md-8">
+                            <div class="col-12 col-lg-5 col-md-8">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -37,13 +38,14 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <h6 class="text-muted font-semibold">Guru</h6>
-                                                <h6 class="font-extrabold mb-0">50</h6>
+                                                <h6 class="font-extrabold mb-0">{{$guru}}</h6>
+                                                <a href="{{route('guru.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4 col-md-8">
+                            <div class="col-12 col-lg-5 col-md-8">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -54,81 +56,50 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <h6 class="text-muted font-semibold">Siswa</h6>
-                                                <h6 class="font-extrabold mb-0">600</h6>
+                                                <h6 class="font-extrabold mb-0">{{$siswa}}</h6>
+                                                <a href="{{route('siswa.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4 col-md-8">
+                            <div class="col-12 col-lg-5 col-md-8">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <div class="stats-icon red">
+                                                <div class="stats-icon green">
+                                                    <i class="fas fa-users"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="text-muted font-semibold">Kelas</h6>
+                                                <h6 class="font-extrabold mb-0">{{$kelas}}</h6>
+                                                <a href="{{route('kelas.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon gray">
                                                     <i class="far fa-list-alt"></i>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <h6 class="text-muted font-semibold">Buku</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
+                                                <h6 class="font-extrabold mb-0">{{$buku}}</h6>
+                                                <a href="{{route('buku.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-4 col-md-8">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                     <i class="fas fa-address-book"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Peminjaman</h6>
-                                                <h6 class="font-extrabold mb-0">2</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-8">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                    <i class="far fa-address-book"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Pengembalian</h6>
-                                                <h6 class="font-extrabold mb-0">2</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-8">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                    <i class="far fa-list-alt"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Kritik & Saran</h6>
-                                                <h6 class="font-extrabold mb-0">2</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-8">
+                            <div class="col-12 col-lg-5 col-md-8">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -139,7 +110,80 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Kategori</h6>
-                                                <h6 class="font-extrabold mb-0">2</h6>
+                                                <h6 class="font-extrabold mb-0">{{$kategori}}</h6>
+                                                <a href="{{route('kategori.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon blue">
+                                                    <i class="far fa-list-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Kritik & Saran</h6>
+                                                <h6 class="font-extrabold mb-0">{{$kritik}}</h6>
+                                                <a href="{{route('admin.kritik.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon deep sky blue">
+                                                     <i class="fas fa-address-book"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Peminjaman</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pinjamguru+$pinjamsiswa}}</h6>
+                                                <a href="{{route('peminjaman.guru.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon deep sky blue">
+                                                    <i class="far fa-address-book"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Pengembalian</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pengembalianguru+$pengembaliansiswa}}</h6>
+                                                <a href="{{route('pengembalian.guru.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon deep sky blue">
+                                                    <i class="far fa-address-book"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Laporan</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pengembalianguru+$pengembaliansiswa}}</h6>
+                                                <a href="{{route('admin.laporan.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>

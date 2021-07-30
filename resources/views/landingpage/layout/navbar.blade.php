@@ -25,6 +25,7 @@
           </li>
           @else
           <li><a href="{{url('user/kritik/index')}}">Kritik & Saran</a></li>
+          <li><a href="{{url('user/pengujung/index')}}">Data pengunjung</a></li>
           <li><a href="{{url('user/register')}}">Register</a></li>
           <li><a data-toggle="modal" data-target=".modal-login" href="#">Login</a></li>
           @endif

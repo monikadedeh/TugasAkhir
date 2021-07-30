@@ -23,7 +23,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                     Data Guru Kategori
+                     Data Kategori
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
@@ -39,7 +39,6 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->nama_kategori}}</td>
-
                                 <td>
                                     <form action="{{route('kategori.delete', $item->id)}}" id="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')"
                                         class="d-inline" method="POST">

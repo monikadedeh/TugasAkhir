@@ -7,7 +7,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Peminjaman</h3>
+                    <h3>Data Peminjaman Guru</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -57,6 +57,7 @@
                                     </form>
                                     <a href="{{route('peminjaman.guru.edit',$item->kode_peminjaman)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
                                     <a href="{{route('peminjaman.guru.detail',$item->kode_peminjaman)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('pengembalian.guru.tambah', $item->kode_peminjaman)}}" class="btn mx-auto btn-success mb-3"><i class="far fa-list-alt"></i></i>Kembalikan</a>
                                 </td>
                             </tr>
                             @endforeach

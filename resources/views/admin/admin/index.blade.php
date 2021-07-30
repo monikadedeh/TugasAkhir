@@ -52,6 +52,7 @@
                                         @csrf
                                     </form>
                                     <a href="{{route('admin.editdata', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    <a href="{{route('admin.detaildata',$item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\landingpage;
 
 use App\Http\Controllers\Controller;
+use App\Kelas;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,14 +22,16 @@ class ProfiluserController extends Controller
 
     //tampil edit
     public function edit($id){
+        $kelas= Kelas::all();
         $editprofil = User::find($id);
-        return view('landingpage.profiluser.ganti', compact('editprofil'));
+        return view('landingpage.profiluser.ganti', compact('editprofil', 'kelas'));
 
     }
 
      //proses update
      public function update(Request $request, $id)
      {
+
          try {
              $name = $request->oldFoto;
              if ($request->hasFile('foto')) {
@@ -43,6 +46,7 @@ class ProfiluserController extends Controller
              $editprofil->alamat = $request->alamat;
              $editprofil->no_telepon = $request->no_telepon;
              $editprofil->email_siswa = $request->email_siswa;
+             $editprofil->id_kelas = $request->id_kelas;
              $editprofil->foto = $name;
              $editprofil->save();
              echo "Foto berhasil di upload";
