@@ -16,10 +16,7 @@ class PengembalianSiswa extends Model
     {
         return $this->hasOne(PeminjamanSiswa::class, 'kode_peminjaman', 'kode_peminjaman');
     }
-    public function siswaRef()
-    {
-        return $this->hasOne(User::class, 'id', 'nama_siswa');
-    }
+
     public function bukuRef()
     {
         return $this->hasOne(Buku::class, 'id', 'nama_buku');

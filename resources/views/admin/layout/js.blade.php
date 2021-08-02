@@ -23,3 +23,14 @@
         } );
     } );
 </script>
+<script>
+    $(document).ready(function() {
+        $('#example1').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                 'pdf',
+            ]
+        } );
+    } );
+</script>
+

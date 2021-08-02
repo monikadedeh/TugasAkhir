@@ -149,7 +149,7 @@ Route::get('admin/pengunjung/siswa/index', 'admin\PengujungSiswaContoller@index'
 Route::delete('admin/pengunjung/siswa/delete/{id}', 'admin\PengujungSiswaContoller@delete')->name('admin.pengunjung.delete');
 
 //Laporan
-Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.laporan.index')->middleware('CekLoginAdmin');
+Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.laporan.index')->middleware('CekLoginAdmin'); 
 
 
 

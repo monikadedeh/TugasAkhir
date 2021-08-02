@@ -38,7 +38,7 @@
                         </thead>
                         <tbody>
                             @foreach($lap as $items)
-                            @if ($items->peminjamanRef->siswaRef->kelasRef->jurusan = "IPA")
+                            @if ($items->peminjamanRef->siswaRef->kelasRef->jurusan == "IPA")
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$items->peminjamanRef->siswaRef->nama_siswa}}</td>
@@ -61,7 +61,7 @@
                     Laporan Data Pengembalian Siswa IPS
                 </div>
                 <div class="card-body">
-                    <table id="example" class="table table-striped">
+                    <table id="example1" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -73,7 +73,7 @@
                         </thead>
                         <tbody>
                             @foreach($lap as $items)
-                            @if ($items->peminjamanRef->siswaRef->kelasRef->jurusan = "IPS")
+                            @if ($items->peminjamanRef->siswaRef->kelasRef->jurusan == "IPS")
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$items->peminjamanRef->siswaRef->nama_siswa}}</td>

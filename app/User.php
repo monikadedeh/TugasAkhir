@@ -44,6 +44,6 @@ class User extends Authenticatable
     ];
     public function kelasRef()
     {
-        return $this->hasOne(Kelas::class, 'id_kelas', 'id_kelas');
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id_kelas');
     }
 }
