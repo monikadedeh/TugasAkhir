@@ -40,10 +40,11 @@ Route::post('admin/register/add', 'admin\RegisterController@addProcess')->name('
 
 //Ganti Profil
 Route::get('profil/admin/edit/{id}', 'admin\ProfilController@edit')->name('profil.admin.edit')->middleware('CekLoginAdmin');;
+Route::patch('profil/admin/simpan/{id}','admin\ProfilController@update')->name('profil.admin.simpan');
 
 //update password
 Route::get('profil/admin/update/password/{id}', 'admin\ProfilController@updatePw')->name('admin.update.password');
-Route::patch('profil/admin/simpan/{id}', 'admin\ProfilController@updatePassword')->name('profil.password.simpan');
+Route::patch('profil/admin/simpan/{id}', 'admin\ProfilController@updatePassword')->name('profil.simpan.password');
 
 //forgotPW
     Route::get('admin/forgot', 'admin\ForgotController@index')->name('admin.forgot');
@@ -83,8 +84,8 @@ Route::delete('buku/delete/{id}', 'admin\BukuController@delete')->name('buku.del
 Route::get('kelas/index', 'admin\KelasController@index')->name('kelas.index')->middleware('CekLoginAdmin');
 Route::get('kelas/tambah', 'admin\KelasController@tambah')->name('kelas.tambah');
 Route::post('kelas/simpan', 'admin\KelasController@simpan')->name('kelas.simpan');
-Route::get('kelas/edit/{id_kelas}', 'admin\KelasController@edit')->name('kelas.edit');
-Route::patch('kelas/edit/update/{id_kelas}', 'admin\KelasController@update')->name('kelas.update');
+// Route::get('kelas/edit/{id_kelas}', 'admin\KelasController@edit')->name('kelas.edit');
+// Route::patch('kelas/edit/update/{id_kelas}', 'admin\KelasController@update')->name('kelas.update');
 Route::get('kelas/detail/{id_kelas}', 'admin\KelasController@detail')->name('kelas.detail');
 Route::delete('kelas/delete/{id_kelas}', 'admin\KelasController@delete')->name('kelas.delete');
 
@@ -93,8 +94,8 @@ Route::delete('kelas/delete/{id_kelas}', 'admin\KelasController@delete')->name('
 Route::get('kategori/index', 'admin\KategoriController@index')->name('kategori.index')->middleware('CekLoginAdmin');
 Route::get('kategori/tambah', 'admin\KategoriController@tambah')->name('kategori.tambahdata');
 Route::post('kategori/simpan', 'admin\KategoriController@simpan')->name('kategori.simpandata');
-Route::get('kategori/edit/{id}', 'admin\KategoriController@edit')->name('kategori.editdata');
-Route::patch('kategori/edit/update/{id}', 'admin\KategoriController@update')->name('kategori.update');
+// Route::get('kategori/edit/{id}', 'admin\KategoriController@edit')->name('kategori.editdata');
+// Route::patch('kategori/edit/update/{id}', 'admin\KategoriController@update')->name('kategori.update');
 Route::delete('kategori/delete/{id}', 'admin\KategoriController@delete')->name('kategori.delete');
 
 
@@ -115,21 +116,21 @@ Route::get('peminjaman/siswa/detail/{kode_peminjaman}', 'admin\PeminjamansiswaCo
 
 
 //Pengembalian guru
-Route::get('pengembalian/guru/edit/{pjguru}', 'admin\PengembalianController@editData')->name('pengembalian.guru.edit');
+// Route::get('pengembalian/guru/edit/{pjguru}', 'admin\PengembalianController@editData')->name('pengembalian.guru.edit');
 Route::get('pengembalian/guru/index', 'admin\PengembalianController@pengembalian_guru')->name('pengembalian.guru.index')->middleware('CekLoginAdmin');
 Route::get('pengembalian/guru/tambah/{kode_peminjaman}', 'admin\PengembalianController@formTambah')->name('pengembalian.guru.tambah');
 Route::post('pengembalian/guru/postTambah', 'admin\PengembalianController@tambahPengembalian')->name('pengembalian.guru.postTambah');
-Route::patch('pengembalian/guru/edit/update/{kode_pengembalian}', 'admin\PengembalianController@editProses')->name('pengembalian.guru.edit.update');
+// Route::patch('pengembalian/guru/edit/update/{kode_pengembalian}', 'admin\PengembalianController@editProses')->name('pengembalian.guru.edit.update');
 Route::delete('pengembalian/guru/delete/{kode_pengembalian}', 'admin\PengembalianController@delete')->name('pengembalian.guru.delete');
 Route::get('pengembalian/guru/detail/{kode_pengembalian}', 'admin\PengembalianController@detail')->name('pengembalian.guru.detail');
 
 
 //Pengembalian siswa
 Route::get('pengembalian/siswa/index', 'admin\PengembaliansiswaController@pengembalian_siswa')->name('pengembalian.siswa.index')->middleware('CekLoginAdmin');
-Route::get('pengembalian/siswa/tambah{kode_peminjaman}', 'admin\PengembaliansiswaController@formTambah')->name('pengembalian.siswa.tambah');
-Route::get('pengembalian/siswa/edit/{pjguru}', 'admin\PengembaliansiswaController@editData')->name('pengembalian.siswa.edit');
+Route::get('pengembalian/siswa/tambah/{kode_peminjaman}', 'admin\PengembaliansiswaController@formTambah')->name('pengembalian.siswa.tambah');
+// Route::get('pengembalian/siswa/edit/{pjguru}', 'admin\PengembaliansiswaController@editData')->name('pengembalian.siswa.edit');
 Route::post('pengembalian/siswa/postTambah', 'admin\PengembaliansiswaController@tambahPengembalian')->name('pengembalian.siswa.postTambah');
-Route::patch('pengembalian/siswa/edit/update/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@editProses')->name('pengembalian.siswa.edit.update');
+// Route::patch('pengembalian/siswa/edit/update/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@editProses')->name('pengembalian.siswa.edit.update');
 Route::delete('pengembalian/siswa/delete/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@delete')->name('pengembalian.siswa.delete');
 Route::get('pengembalian/siswa/detail/{id_pengembalian_siswa}', 'admin\PengembaliansiswaController@detail')->name('pengembalian.siswa.detail');
 
@@ -143,15 +144,18 @@ Route::patch('admin/kritik/edit/update/{id}', 'admin\KrtikController@editProses'
 //Pengunjung Guru
 Route::get('admin/pengunjung/guru/index', 'admin\PengujungGuruContoller@index')->name('admin.pengunjung.guru.index')->middleware('CekLoginAdmin');
 Route::delete('admin/pengunjung/guru/delete/{id}', 'admin\PengujungGuruContoller@delete')->name('admin.pengunjung.guru.delete');
+Route::get('admin/pengunjung/guru/detail/{id}', 'admin\PengujungGuruContoller@detail')->name('admin.pengunjung.guru.detaildata');
 
 //Pengunjung Siswa
 Route::get('admin/pengunjung/siswa/index', 'admin\PengujungSiswaContoller@index')->name('admin.pengunjung.index')->middleware('CekLoginAdmin');
 Route::delete('admin/pengunjung/siswa/delete/{id}', 'admin\PengujungSiswaContoller@delete')->name('admin.pengunjung.delete');
+Route::get('admin/pengunjung/siswa/detail/{id}', 'admin\PengujungSiswaContoller@detail')->name('admin.pengunjung.siswa.detaildata');
 
-//Laporan
-Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.laporan.index')->middleware('CekLoginAdmin'); 
+//Laporan Pengembalian siswa
+Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.laporan.index')->middleware('CekLoginAdmin');
 
-
+//Laporan Peminjaman siswa
+Route::get('admin/laporan/peminjaman/index', 'admin\LaporanPeminjamanController@index')->name('admin.laporan.peminjaman.index')->middleware('CekLoginAdmin');
 
 
 

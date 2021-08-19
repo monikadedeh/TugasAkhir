@@ -48,12 +48,12 @@
                                         {{$detail->created_at}}
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Status</label>
+                                        <label>Denda</label>
                                     </div><div class="col-1">
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$detail->status}}
+                                        {{$detail->denda}}
                                     </div>
                                 </div>
                             </div>

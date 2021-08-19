@@ -34,7 +34,6 @@
                                 <th>Peminjam</th>
                                 <th>Tanggal Peminjaman</th>
                                 <th>Status</th>
-
                                 <th>Durasi</th>
                                 <th>Aksi</th>
                             </tr>
@@ -47,7 +46,11 @@
                                 <td>{{$item->bukuRef->nama_buku}}</td>
                                 <td>{{$item->guruRef->nama_guru}}</td>
                                 <td>{{$item->created_at}}</td>
-                                <td>{{$item->status}}</td>
+                                @if ($item->status == "1")
+                                <td>Sudah Dikembalikan</td>
+                                @else
+                                <td>Dipinjam</td>
+                                @endif
                                 <td>{{$item->durasi}}</td>
                                 <td>
                                     <form action="{{route('peminjaman.guru.delete', $item->kode_peminjaman)}}" kode_peminjaman="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
@@ -55,9 +58,14 @@
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
-                                    <a href="{{route('peminjaman.guru.edit',$item->kode_peminjaman)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
                                     <a href="{{route('peminjaman.guru.detail',$item->kode_peminjaman)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('pengembalian.guru.tambah', $item->kode_peminjaman)}}" class="btn mx-auto btn-success mb-3"><i class="far fa-list-alt"></i></i>Kembalikan</a>
+                                    @if ($item->status == "0")
+                                    <a href="{{route('peminjaman.guru.edit',$item->kode_peminjaman)}}" class="btn mx-auto btn-success mb-3"><i class="far fa-list-alt"></i>Kembalikan</i></a>
+                                    @else
+
+                                    @endif
+
+                                    {{-- <a href="{{route('pengembalian.guru.tambah', $item->kode_peminjaman)}}" class="btn mx-auto btn-success mb-3"><i class="far fa-list-alt"></i></i>Kembalikan</a> --}}
                                 </td>
                             </tr>
                             @endforeach

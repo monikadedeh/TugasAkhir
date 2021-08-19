@@ -31,21 +31,21 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <div class="auth-logo">
+                    {{-- <div class="auth-logo"> --}}
                         <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
-                    </div>
-                    <h1 class="auth-title">Register Siswa</h1>
+                    {{-- </div> --}}
+                    <h1 class="auth">Register Siswa</h1>
                     <form class="md-float-material form-material" action="{{route('user.register.addProses')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('post')
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" name="nama_siswa" class="form-control form-control-xl" placeholder="Nama Lengkap">
+                            <input type="text" name="nama_siswa" class="form-control " placeholder="Nama Lengkap">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" name="username" class="form-control form-control-xl" placeholder="Username">
+                            <input type="text" name="username" class="form-control " placeholder="Username">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
@@ -54,7 +54,7 @@
                             @php
                                 $kelas = DB::table('kelas')->get();
                             @endphp
-                        <select name="id_kelas" class="form-control form-control-xl">
+                        <select name="id_kelas" class="form-control ">
                             <option selected> Pilih Kelas </option>
                             @foreach ( $kelas as $item )
                                 <option value="{{$item->id_kelas}}">{{$item->jurusan}} {{$item->kelas}}</option>
@@ -65,21 +65,21 @@
                         </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="password" class="form-control form-control-xl" placeholder="Password">
+                            <input type="password" name="password" class="form-control " placeholder="Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="confirmPassword" class="form-control form-control-xl" placeholder="Confirm Password">
+                            <input type="password" name="confirmPassword" class="form-control " placeholder="Confirm Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Register</button>
+                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-0">Register</button>
                     </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class='text-gray-600'>Already have an account? <a href="{{route('user.login')}}"
+                    <div class="text-center mt-2 text-lg fs-4">
+                        <p class='text-gray-200'>Already have an account? <a href="{{route('user.login')}}"
                                 class="font-bold">Log
                                 in</a>.</p>
                     </div>

@@ -145,8 +145,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Peminjaman</h6>
-                                                <h6 class="font-extrabold mb-0">{{$pinjamguru+$pinjamsiswa}}</h6>
+                                                <h6 class="text-muted font-semibold">Peminjaman Guru</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pinjamguru}}</h6>
                                                 <a href="{{route('peminjaman.guru.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
@@ -159,13 +159,49 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="stats-icon deep sky blue">
+                                                     <i class="fas fa-address-book"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Peminjaman Siswa</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pinjamsiswa}}</h6>
+                                                <a href="{{route('peminjaman.siswa.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
                                                     <i class="far fa-address-book"></i>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Pengembalian</h6>
-                                                <h6 class="font-extrabold mb-0">{{$pengembalianguru+$pengembaliansiswa}}</h6>
+                                                <h6 class="text-muted font-semibold">Pengembalian Guru</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pengembalianguru}}</h6>
                                                 <a href="{{route('pengembalian.guru.index')}}">Lihat Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
+                                                    <i class="far fa-address-book"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Pengembalian Siswa</h6>
+                                                <h6 class="font-extrabold mb-0">{{$pengembaliansiswa}}</h6>
+                                                <a href="{{route('pengembalian.siswa.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -181,8 +217,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Laporan</h6>
-                                                <h6 class="font-extrabold mb-0">{{$pengembalianguru+$pengembaliansiswa}}</h6>
+                                                <h6 class="text-muted font-semibold">Kelas</h6>
+                                                <h6 class="font-extrabold mb-0">{{$kelas}}</h6>
                                                 <a href="{{route('admin.laporan.index')}}">Lihat Selengkapnya</a>
                                             </div>
                                         </div>

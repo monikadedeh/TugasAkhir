@@ -8,7 +8,7 @@
             <a href="{{route('peminjaman.siswa.index')}}" class="btn mx-auto btn-primary mb-3">Kembali</a>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Detail Buku</h4>
+                    <h4 class="card-title">Detail Peminjaman Siswa</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
@@ -24,20 +24,12 @@
                                         {{$detail->bukuRef->nama_buku}}
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Nama Guru</label>
+                                        <label>Nama Siswa</label>
                                     </div><div class="col-1">
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
                                         {{$detail->siswaRef->nama_siswa}}
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Kode Peminjaman</label>
-                                    </div><div class="col-1">
-                                        <p>:</p>
-                                    </div>
-                                    <div class="col-md-7 form-group">
-                                        {{$detail->kode_peminjaman}}
                                     </div>
                                     <div class="col-md-4">
                                         <label>Tanggal Pinjam</label>

@@ -8,7 +8,7 @@
             <a href="{{route('peminjaman.guru.index')}}" class="btn mx-auto btn-primary mb-3">Kembali</a>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Detail Buku</h4>
+                    <h4 class="card-title">Detail Peminjaman Guru</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">

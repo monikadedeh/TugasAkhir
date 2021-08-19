@@ -7,12 +7,10 @@ use App\Model\PeminjamanGuru;
 use App\Model\PengembalianGuru;
 use App\Model\Buku;
 use App\Model\guru;
+use App\Model\PengembalianSiswa;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-
-
 
 
 
@@ -20,7 +18,7 @@ class PengembalianController extends Controller
 {
     //pengembalian index
     public function pengembalian_guru(){
-        $pjguru = PengembalianGuru::with('peminjamanRef')->get();
+        $pjguru = PengembalianGuru::all();
         return view('admin.pengembalian_guru.index', compact('pjguru'));
         }
 
@@ -39,8 +37,17 @@ class PengembalianController extends Controller
                 'status' => 'required',
                 'kode_peminjaman' => 'required',
             ]);
+
+            // $latest =PengembalianGuru::latest()->first();
+            // if (!$latest) {
+            //     $kode_pengembalian = 'PL-00001';
+            // }else{
+            //     $string = preg_replace("/[^0-9\.]/", '', $latest->kode_pengembalian);
+
+            //     $kode_pengembalian = 'PL-' . sprintf('%04d', $string+1);
+            // }
             $post =  new PengembalianGuru();
-            $post->kode_pengembalian = $request->kode_pengembalian;
+            $post->kode_pengembalian = $$request->kode_pengembalian;
             $post->denda = $request->denda;
             $post->status = $request->status;
             $post->kode_peminjaman = $request->kode_peminjaman;

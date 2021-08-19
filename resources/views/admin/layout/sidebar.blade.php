@@ -67,13 +67,6 @@
                                 <span>Kritik & Saran</span>
                             </a>
                         </li>
-                        </li>
-                        <li class="sidebar-item ">
-                        <a href="{{route('admin.laporan.index')}}" class='sidebar-link'>
-                            <i class="far fa-list-alt"></i>
-                            <span>Laporan</span>
-                        </a>
-                        </li>
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-address-book"></i>
@@ -99,6 +92,20 @@
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="{{url('pengembalian/siswa/index')}}">Pengembalian siswa</a>
+                                </li>
+                            </ul>
+                         </li>
+                         <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="far fa-list-alt"></i>
+                                <span>Laporan </span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="{{route('admin.laporan.peminjaman.index')}}">Laporan Peminjaman</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="{{url('admin/laporan/index')}}">Laporan pengembalian</a>
                                 </li>
                             </ul>
                          </li>

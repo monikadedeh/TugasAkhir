@@ -13,22 +13,7 @@
             <div class="col-lg-6 col-md-10 no-padding info-rigth">
                 <div class="info-content">
                     <h2 class="pb-30">{{$buku->nama_buku}}</h2>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h5>Tahun </h5>
-                        </div>
-                        <div class="col-md-3">
-                            <p>{{$buku->tahun}}</p>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-md-3">
-                            <h5>Penerbit</h5>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{$buku->penerbit}}</p>
-                        </div>
-                    </div>
+
                     <div class="row ">
                         <div class="col-md-3">
                             <h5>Penulis</h5>
@@ -37,6 +22,25 @@
                             <p>{{$buku->penulis}}</p>
                         </div>
                     </div>
+
+                    <div class="row ">
+                        <div class="col-md-3">
+                            <h5>Penerbit</h5>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{$buku->penerbit}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Tahun </h5>
+                        </div>
+                        <div class="col-md-3">
+                            <p>{{$buku->tahun}}</p>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-3">
                             <h5>Kategori</h5>
@@ -45,6 +49,7 @@
                             <p>{{$buku->kategoriRef->nama_kategori}}</p>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-3">
                             <h5>Stok Buku</h5>
@@ -53,6 +58,7 @@
                             <p>{{$buku->stok}}</p>
                         </div>
                     </div>
+
                     <div>
                         <h4 class="mb-2">Sinopsis / Deskripsi</h4>
                         <p >{{$buku->deskripsi}}</p>

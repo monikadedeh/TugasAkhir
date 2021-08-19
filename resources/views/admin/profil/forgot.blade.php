@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
+                        <img src="{{url('foto-admin/'. $editpw->foto)}}" style="width:200px; height:200px;" alt="Photo" srcset="">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" action="{{route('admin.simpan.password', $editpw->id)}}" method="post" enctype="multipart/form-data">
+                        <form class="form form-horizontal" action="{{route('profil.simpan.password', $editpw->id)}}" method="post" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="form-body">

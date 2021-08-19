@@ -47,7 +47,7 @@
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
-                                    <a href="{{route('kelas.edit', $item->id_kelas)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    {{-- <a href="{{route('kelas.edit', $item->id_kelas)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a> --}}
                                     <a href="{{route('kelas.detail',$item->id_kelas)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>

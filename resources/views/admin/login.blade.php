@@ -14,9 +14,9 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <div class="auth-logo">
+                    {{-- <div class="auth-logo"> --}}
                         <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
-                    </div>
+                    {{-- </div> --}}
                     <h1 class="auth-title">Log in.</h1>
                         @if (session()->has('message1'))
                             <div class="alert bg-danger text-white  alert-danger" role="alert">
@@ -27,32 +27,31 @@
                                  {{ Session::get('message2') }}
                             </div>
                          @endif
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
                     <form class="md-float-material form-material" action="{{route('admin.login.simpan')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('post')
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" name="username" class="form-control form-control-xl" placeholder="Username">
+                            <input type="text" name="username" class="form-control " placeholder="Username">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" name="password" class="form-control form-control-xl" placeholder="Password">
+                            <input type="password" name="password" class="form-control " placeholder="Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
                         <div class="form-check form-check-lg d-flex align-items-end">
                             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                            <label class="form-check-label text-gray-200" for="flexCheckDefault">
                                 Keep me logged in
                             </label>
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Log in</button>
                     </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">Don't have an account?
+                    <div class="text-center mt-2 text-lg fs-4">
+                        <p class="text-gray-200">Don't have an account?
                             <a href="{{route('admin.register')}}"
                                 class="font-bold">Sign
                                 up</a>.</p>
@@ -62,7 +61,6 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-
                 </div>
             </div>
         </div>

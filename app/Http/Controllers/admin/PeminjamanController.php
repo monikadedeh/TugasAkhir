@@ -73,7 +73,7 @@ public function update(Request $request, $kode_peminjaman)
     }
 
 
-    return redirect()->route('peminjaman.guru.index')->with('alert', 'Data  Berhasil diperbarui');
+    return redirect()->route('pengembalian.guru.index')->with('alert', 'Data  Berhasil diperbarui');
 }
     //hapus data
     public function delete($kode_peminjaman)

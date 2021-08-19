@@ -46,9 +46,9 @@ class ProfilGuruController extends Controller
              $editprofil->foto = $name;
              $editprofil->save();
              echo "Foto berhasil di upload";
-                 return redirect()->route('profil.guru.edit', $id)->with('status', 'Berhasil Edit Data Buku');
+                 return redirect()->route('profil.guru.edit', $id)->with('status', 'Berhasil Edit Data Guru');
          } catch (Throwable $e) {
-            // //  dd($e);
+             dd($e);
             //  dd($request->all());
          }
      }

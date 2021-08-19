@@ -30,9 +30,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Pengembalian </th>
-                                <th>Kode Peminjaman</th>
-                                <th>Status</th>
+                                <th>Nama Siswa </th>
+                                <th>Nama Buku</th>
+                                <th>Tanggal Pengembalian</th>
                                 <th>Denda</th>
                                 <th>Aksi</th>
                             </tr>
@@ -41,11 +41,15 @@
                             @foreach($pjguru as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$item->id_pengembalian_siswa}}</td>
-                                <td>{{$item->kode_peminjaman}}</td>
+                                <td>{{$item->peminjamanRef->siswaRef->nama_siswa}}</td>
+                                <td>{{$item->peminjamanRef->bukuRef->nama_buku}}</td>
+                                <td>{{$item->created_at}}</td>
+                                    {{-- @if($item->status == 1)
+                                    <td>Belum Dikembalikan</td>
+                                    @endif
                                     @if($item->status == 0)
                                     <td>Dikembalikan</td>
-                                    @endif
+                                    @endif --}}
                                 <td>{{$item->denda}}</td>
                                 <td>
                                     <form action="{{route('pengembalian.siswa.delete', $item->id_pengembalian_siswa)}}" id_pengembalian_siswa="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
@@ -53,7 +57,7 @@
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
-                                    <a href="{{route('pengembalian.siswa.edit', $item->id_pengembalian_siswa)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    {{-- <a href="{{route('pengembalian.siswa.edit', $item->id_pengembalian_siswa)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a> --}}
                                     <a href="{{route('pengembalian.siswa.detail',$item->id_pengembalian_siswa)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></a>
                                 </td>
                             </tr>

@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('title', 'Admin Perpustakaan')
 
-@section('content')
+{{-- @section('content')
 <div class="page-content">
     <div class="row match-height">
         <div class="col-md-12 col-12">
@@ -37,4 +37,4 @@
             </div>
         </div>
 </div>
-@endsection
+@endsection --}}

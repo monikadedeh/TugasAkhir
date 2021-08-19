@@ -16,13 +16,13 @@
                             @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label>Kode Pengembalian</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="Nama" class="form-control"
                                             name="kode_pengembalian" placeholder="Masukan Kode Pengembalian">
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-4">
                                         <label>Kode Peminjaman</label>
                                     </div>

@@ -44,11 +44,7 @@
                                 <td>{{$item->kegiatan}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>
-                                    <form action="{{route('admin.pengunjung.guru.delete', $item->id)}}" id="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
-                                        @method('delete')
-                                        <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
-                                        @csrf
-                                    </form>
+                                    <a href="{{route('admin.pengunjung.guru.detaildata', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></i></a>
                                 </td>
                             </tr>
                             @endforeach

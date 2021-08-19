@@ -20,9 +20,37 @@
                                 <label for="exampleInputNama">Nama Lengkap</label>
                                 <input type="nama" name="nama_lengkap" class="form-control" id="nama" placeholder="Masukan nama lengkap">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="exampleInputNama">Kelas</label>
                                 <input type="nama" name="kelas" class="form-control" id="nama" placeholder="Masukan nama kelas anda">
+                            </div> --}}
+                            <div class=" form-group">
+                                <div class=" form-group">
+                                <select name="kelas"class="form-control">
+                                    <Option value="pilih kelas"> Pilih Kelas</Option>
+                                    <option value="10-1 IPA">10-1 IPA</option>
+                                    <option value="10-2 IPA">10-2 IPA</option>
+                                    <option value="10-3 IPA">10-3 IPA</option>
+                                    <option value="10-4 IPA">10-4 IPA</option>
+                                    <option value="10-1 IPS">10-1 IPS</option>
+                                    <option value="10-2 IPS">10-2 IPS</option>
+                                    <option value="10-3 IPS">10-3 IPS</option>
+                                    <option value="11-1 IPA">11-1 IPA</option>
+                                    <option value="11-2 IPA">11-2 IPA</option>
+                                    <option value="11-3 IPA">11-3 IPA</option>
+                                    <option value="11-4 IPA">11-4 IPA</option>
+                                    <option value="11-1 IPS">11-1 IPS</option>
+                                    <option value="11-2 IPS">11-2 IPS</option>
+                                    <option value="11-3 IPS">11-3 IPS</option>
+                                    <option value="12-1 IPA">12-1 IPA</option>
+                                    <option value="12-2 IPA">12-2 IPA</option>
+                                    <option value="12-3 IPA">12-3 IPA</option>
+                                    <option value="12-4 IPA">12-4 IPA</option>
+                                    <option value="12-1 IPS">12-1 IPS</option>
+                                    <option value="12-2 IPS">12-2 IPS</option>
+                                    <option value="12-3 IPS">12-3 IPS</option>
+                                </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-group">

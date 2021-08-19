@@ -65,9 +65,8 @@
         <div class="row justify-content-center top">
             <div class="col-lg-12">
                 <h1 class="text-white text-center">Kritik dan Saran</h1>
-
                 <div class="row">
-                    <div class="active-tstimonial-carusel">
+                    <div class="active-tstimonial-carusel ">
                         @foreach ($kritik as $item)
                         <div class="single-testimonial item">
                             <tbody>

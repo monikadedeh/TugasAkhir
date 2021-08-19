@@ -17,7 +17,7 @@ class PengembaliansiswaController extends Controller
 {
     //pengembalian siswa
     public function pengembalian_siswa(){
-        $pjguru = PengembalianSiswa::with('peminjamanRef')->get();
+        $pjguru = PengembalianSiswa::all();
         return view('admin.pengembalian_siswa.index' , compact('pjguru'));
         }
 

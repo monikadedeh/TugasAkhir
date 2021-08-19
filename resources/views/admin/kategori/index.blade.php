@@ -46,7 +46,7 @@
                                         <button class="btn mx-auto btn-danger mb-3"><i class="far fa-trash-alt"></i></button>
                                         @csrf
                                     </form>
-                                    <a href="{{route('kategori.editdata', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a>
+                                    {{-- <a href="{{route('kategori.editdata', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="far fa-edit"></i></a> --}}
                                 </td>
                             </tr>
                             @endforeach

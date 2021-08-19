@@ -20,22 +20,22 @@
             <div class="row h-100">
                 <div class="col-lg-5 col-12">
                     <div id="auth-left">
-                        <div class="auth-logo">
+                        {{-- <div class="auth-logo"> --}}
                             <img src="{{url('assets/images/logo.png')}}" style="width:200px; height:200px;" alt="Photo" srcset="">
-                        </div>
-                        <h1 class="auth-title">Forgot Password Guru</h1>
-                        <p class="auth-subtitle mb-5">Input your number and we will send you reset password link.</p>
+                        {{-- </div> --}}
+                        <h1 class="auth">Forgot Password Guru</h1>
+
 
                         <form action="{{route('user.forgotpw.no_telepon.guru')}}"  method="POST" enctype="multipart/form-data">
                             @method('post')
                             @csrf
                             <div class="form-group position-relative has-icon-left mb-4">
-                                <input type="text" class="form-control form-control-xl" name="no_telepon" placeholder="No Telepon">
+                                <input type="text" class="form-control " name="no_telepon" placeholder="No Telepon">
                                 <div class="form-control-icon">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Send</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-0">Send</button>
                         </form>
                     </div>
                 </div>

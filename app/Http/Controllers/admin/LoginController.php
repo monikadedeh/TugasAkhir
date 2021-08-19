@@ -39,6 +39,7 @@ class LoginController extends Controller
         $pengembalianguru = PengembalianGuru::count();
         $pengembaliansiswa = PengembalianSiswa::count();
         $kelas = Kelas::count();
+
         // $laporan = ::count();
         return view('admin.dashboard',compact('admin','buku','guru','siswa','kritik','kategori',
         'datapengunjung','datapengunjungsiswa','pinjamguru', 'pinjamsiswa', 'pengembalianguru','pengembaliansiswa','kelas'));

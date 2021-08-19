@@ -51,6 +51,7 @@ public function update(Request $request, $kode_peminjaman)
             $denda = 500 * (int)$diff_in_days;
         }
 
+        // dd($denda);
 
         $pn = PengembalianSiswa::where('kode_peminjaman', $kode_peminjaman)->first();
         if(!$pn){
@@ -66,9 +67,7 @@ public function update(Request $request, $kode_peminjaman)
         }
 
     }
-
-
-    return redirect()->route('peminjaman.siswa.index')->with('alert', 'Data  Berhasil diperbarui');
+    return redirect()->route('pengembalian.siswa.index')->with('alert', 'Data  Berhasil diperbarui');
 }
 //hapus data
 public function delete($kode_peminjaman)

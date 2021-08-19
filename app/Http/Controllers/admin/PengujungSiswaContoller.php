@@ -16,11 +16,9 @@ class PengujungSiswaContoller extends Controller
         return view('admin.data_pengunjung_siswa.index', compact('pengunjung'));
         }
 
-    //hapus data
-    public function delete($id)
-    {
-        DB::table('data_pengujung_siswa_create')->where('id', $id)->delete();
-
-        return redirect()->route('admin.pengunjung.index')->with('status', 'Data Berhasil Dihapus');
-    }
+     //Tampil Detail
+     public function detail($id){
+        $siswadetail= DB::table('data_pengujung_siswa_create')->where('id', $id)->first();
+        return view('admin.data_pengunjung_siswa.detail', compact('siswadetail'));
+        }
 }

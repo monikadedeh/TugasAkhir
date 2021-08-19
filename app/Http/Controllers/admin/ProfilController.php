@@ -64,12 +64,19 @@ class ProfilController extends Controller
         return view('admin.profil.forgot', compact('editpw'));
 
     }
-
-
-
     //Update password
     public function updatePassword(Request $request, $id)
     {
+        $name = $request->oldFoto;
+             if ($request->hasFile('foto')) {
+                 $resorce = $request->file('foto');
+                 $name   = $resorce->getClientOriginalName();
+                 $resorce->move(\base_path() . "/public/foto-admin", $name);
+             }
+             $editpassword = PegawaiPerpustakaan::find($request->id);
+             $editpassword->foto = $name;
+             $editpassword->save();
+             echo "Foto berhasil di upload";
 
         $newPassword = $request->newPassword;
         if ($newPassword === $request->confirmPassword) {

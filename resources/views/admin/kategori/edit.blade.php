@@ -1,4 +1,4 @@
-@extends('admin.master')
+{{-- @extends('admin.master')
 @section('title', 'Admin Perpustakaan')
 
 @section('content')
@@ -35,4 +35,4 @@
             </div>
         </div>
 </div>
-@endsection
+@endsection --}}

@@ -8,7 +8,7 @@
             <a href="{{route('peminjaman.guru.index')}}" class="btn mx-auto btn-primary mb-3">Kembali</a>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Detail Buku</h4>
+                    <h4 class="card-title">Detail Pengembalian Guru</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
@@ -16,7 +16,7 @@
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Judul Buku </label>
+                                        <label>Nama Buku </label>
                                     </div><div class="col-1">
                                         <p>:</p>
                                     </div>
@@ -32,14 +32,6 @@
                                         {{$detail->peminjamanRef->guruRef->nama_guru}}
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Kode Pengembalian</label>
-                                    </div><div class="col-1">
-                                        <p>:</p>
-                                    </div>
-                                    <div class="col-md-7 form-group">
-                                        {{$detail->kode_pengembalian}}
-                                    </div>
-                                    <div class="col-md-4">
                                         <label>Tanggal Pengembalian</label>
                                     </div><div class="col-1">
                                         <p>:</p>
@@ -48,12 +40,12 @@
                                         {{$detail->created_at}}
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Status</label>
+                                        <label>Denda</label>
                                     </div><div class="col-1">
                                         <p>:</p>
                                     </div>
                                     <div class="col-md-7 form-group">
-                                        {{$detail->status}}
+                                        {{$detail->denda}}
                                     </div>
                                 </div>
                             </div>

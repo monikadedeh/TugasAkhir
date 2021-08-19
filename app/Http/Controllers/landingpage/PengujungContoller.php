@@ -19,7 +19,6 @@ class PengujungContoller extends Controller
     //proses tambah data
     public function simpanGuru(Request $request)
     {
-
         try {
                 $pengunjung = new PengunjungGuru();
                 $pengunjung->nama_lengkap = $request->nama_lengkap;
@@ -36,7 +35,6 @@ class PengujungContoller extends Controller
     //proses tambah data siswa
     public function simpanSiswa(Request $request)
     {
-
         try {
                 $pengunjung = new PengunjungSiswa();
                 $pengunjung->nama_lengkap = $request->nama_lengkap;
