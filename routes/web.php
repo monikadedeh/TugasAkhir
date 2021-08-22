@@ -44,7 +44,7 @@ Route::patch('profil/admin/simpan/{id}','admin\ProfilController@update')->name('
 
 //update password
 Route::get('profil/admin/update/password/{id}', 'admin\ProfilController@updatePw')->name('admin.update.password');
-Route::patch('profil/admin/simpan/{id}', 'admin\ProfilController@updatePassword')->name('profil.simpan.password');
+Route::patch('profil/admin/password/{id}', 'admin\ProfilController@updatePassword')->name('profil.simpan.password');
 
 //forgotPW
     Route::get('admin/forgot', 'admin\ForgotController@index')->name('admin.forgot');

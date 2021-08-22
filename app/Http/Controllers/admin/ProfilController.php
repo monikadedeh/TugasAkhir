@@ -14,10 +14,10 @@ use Throwable;
 
 class ProfilController extends Controller
 {
-    //upadate profil
-    public function updateprofil(){
-        return view('admin.profil.updateprofil');
-    }
+    // //upadate profil
+    // public function updateprofil(){
+    //     return view('admin.profil.updateprofil');
+    // }
 
      //tampil edit
      public function edit($id){
@@ -26,9 +26,39 @@ class ProfilController extends Controller
 
     }
 
+    //  //proses update
+    //  public function update(Request $request, $id)
+    //  {
+    //     dd($request->all());
+    //      try {
+    //          $name = $request->oldFoto;
+    //          if ($request->hasFile('foto')) {
+    //              $resorce = $request->file('foto');
+    //              $name   = $resorce->getClientOriginalName();
+    //              $resorce->move(\base_path() . "/public/foto-admin", $name);
+    //          }
+
+    //          $editprofil = PegawaiPerpustakaan::find($request->id);
+    //          $editprofil->nama_pustakawan = $request->nama_pustakawan;
+    //          $editprofil->jenis_kelamin = $request->jenis_kelamin;
+    //          $editprofil->alamat = $request->alamat;
+    //          $editprofil->no_telepon = $request->no_telepon;
+    //          $editprofil->email_perpusatkawaan= $request->email_perpusatkawaan;
+    //          $editprofil->foto = $name;
+    //          $editprofil->save();
+    //          echo "Foto berhasil di upload";
+    //              return redirect()->route('profil.admin.edit', $id)->with('status', 'Berhasil edit data diri');
+    //      } catch (Throwable $e) {
+
+    //         //  dd($e);
+    //         return redirect()->back()->with('status', 'Gagal edit data diri');
+    //      }
+    //  }
+
      //proses update
      public function update(Request $request, $id)
      {
+
          try {
              $name = $request->oldFoto;
              if ($request->hasFile('foto')) {
@@ -42,15 +72,14 @@ class ProfilController extends Controller
              $editprofil->jenis_kelamin = $request->jenis_kelamin;
              $editprofil->alamat = $request->alamat;
              $editprofil->no_telepon = $request->no_telepon;
-             $editprofil->email_perpusatkawaan= $request->email_perpusatkawaan;
+             $editprofil->email_perpusatkawaan = $request->email_perpusatkawaan;
              $editprofil->foto = $name;
              $editprofil->save();
              echo "Foto berhasil di upload";
-                 return redirect()->route('profil.admin.edit', $id)->with('status', 'Berhasil edit data diri');
+                 return redirect()->route('profil.admin.edit', $id)->with('status', 'Berhasil Edit Data ');
          } catch (Throwable $e) {
-            // // //  dd($e);
-            //  dd($e);
-            return redirect()->back()->with('status', 'Gagal edit data diri');
+            // //  dd($e);
+            //  dd($request->all());
          }
      }
     //gantipassword

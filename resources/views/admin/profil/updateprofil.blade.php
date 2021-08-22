@@ -19,9 +19,12 @@
                             <div class="card-body">
                                 <h3>Data Diri</h3>
                                 <hr>
-                                <form class="form form-horizontal" action="/profil/admin/simpan/{{$editprofil->id}}" method="post" enctype="multipart/form-data">
+                                {{-- <form class="form form-horizontal" action="/profil/admin/simpan/{{$editprofil->id}}" method="post" enctype="multipart/form-data">
                                     @method('patch')
-                                    @csrf
+                                    @csrf --}}
+                                    <form class="form form-horizontal" action="{{route('profil.admin.simpan', $editprofil->id)}}" method="post" enctype="multipart/form-data" >
+                                        @method('patch')
+                                        @csrf
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
