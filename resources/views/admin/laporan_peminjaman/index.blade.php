@@ -23,7 +23,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Laporan Data Pengembalian Siswa IPA
+                    Laporan Data Peminjaman Siswa IPA
                 </div>
                 <div class="card-body">
                     <table id="example" class="table table-striped">
@@ -58,7 +58,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Laporan Data Pengembalian Siswa IPS
+                    Laporan Data Peminjaman Siswa IPS
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-striped">

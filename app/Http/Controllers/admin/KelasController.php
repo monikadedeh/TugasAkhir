@@ -13,12 +13,12 @@ class KelasController extends Controller
     //Tampil index Buku
     public function index(){
         $kelas= Kelas::all();
-        return view('admin.Kelas.index', compact('kelas'));
+        return view('admin.kelas.index', compact('kelas'));
     }
 
     //Halaman Tambah
     public function tambah(){
-        return view('admin.Kelas.tambah');
+        return view('admin.kelas.tambah');
     }
 
     //proses tambah data

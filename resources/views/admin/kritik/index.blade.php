@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
-                            <tr>detail
+                            <tr>
                                 <th>No </th>
                                 <th>Nama Lengkap</th>
                                 <th>Krtik</th>
