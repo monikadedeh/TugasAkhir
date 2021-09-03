@@ -50,7 +50,7 @@
                                     @if($item->status == 0)
                                     <td>Dikembalikan</td>
                                     @endif --}}
-                                <td>Rp {{$item->denda}}</td>
+                                <td>{{'Rp ' . number_format($item->denda,2,',','.')}}</td>
                                 <td>
                                     <form action="{{route('pengembalian.guru.delete', $item->kode_pengembalian)}}" kode_pengembalian="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
                                         @method('delete')

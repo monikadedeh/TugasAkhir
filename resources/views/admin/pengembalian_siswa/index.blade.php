@@ -50,7 +50,7 @@
                                     @if($item->status == 0)
                                     <td>Dikembalikan</td>
                                     @endif --}}
-                                <td>Rp number_format({{$item->denda}},'2','.','.')</td>
+                                <td>{{'Rp ' . number_format($item->denda,2,',','.')}}</td>
 
 
                                 <td>
