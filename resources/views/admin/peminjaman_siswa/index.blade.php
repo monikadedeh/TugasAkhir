@@ -45,7 +45,7 @@
                                 <td>{{$item->kode_peminjaman}}</td>
                                 <td>{{$item->bukuRef->nama_buku}}</td>
                                 <td>{{$item->siswaRef->nama_siswa}}</td>
-                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->created_at->isoFormat('dddd, D MMMM Y')}}</td>
                                 @if ($item->status == "1")
                                 <td>Sudah Dikembalikan</td>
                                 @else

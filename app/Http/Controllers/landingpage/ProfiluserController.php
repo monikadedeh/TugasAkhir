@@ -46,7 +46,6 @@ class ProfiluserController extends Controller
              $editprofil->alamat = $request->alamat;
              $editprofil->no_telepon = $request->no_telepon;
              $editprofil->email_siswa = $request->email_siswa;
-             $editprofil->id_kelas = $request->id_kelas;
              $editprofil->foto = $name;
              $editprofil->save();
              echo "Foto berhasil di upload";

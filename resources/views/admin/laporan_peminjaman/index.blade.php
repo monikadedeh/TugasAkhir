@@ -44,7 +44,7 @@
                                 <td>{{$items->siswaRef->nama_siswa}}</td>
                                 <td>{{$items->siswaRef->kelasRef->kelas}} {{$items->siswaRef->kelasRef->jurusan}}</td>
                                 <td>{{$items->bukuRef->nama_buku}}</td>
-                                <td>{{$items->created_at}}</td>
+                                <td>{{$items->created_at->isoFormat('dddd, D MMMM Y')}}</td>
                             </tr>
                             @else
                             @endif
@@ -79,7 +79,7 @@
                                 <td>{{$items->siswaRef->nama_siswa}}</td>
                                 <td>{{$items->siswaRef->kelasRef->kelas}} {{$items->siswaRef->kelasRef->jurusan}}</td>
                                 <td>{{$items->bukuRef->nama_buku}}</td>
-                                <td>{{$items->created_at}}</td>
+                                <td>{{$items->created_at->isoFormat('dddd, D MMMM Y')}}</td>
                             </tr>
                             @else
                             @endif

@@ -47,6 +47,8 @@
                                             <option value="12-3">12-3</option>
                                             <option value="12-4">12-4</option>
                                             <option value="12-5">12-5</option>
+                                            <option value="Alumni">Alumni</option>
+
                                         </select>
                                     </div>
                                     <div class="col-sm-12 d-flex justify-content-end">

@@ -69,7 +69,7 @@
                                                     <option value="{{$k->id_kelas}}">{{$k->kelas}} {{$k->jurusan}}</option>
                                                     @endforeach
                                                 </select> --}}
-                                                <select name="id_kelas" class="form-control">
+                                                <select name="id_kelas" disabled class="form-control">
                                                     <option value="{{$editprofil->kelasRef->id_kelas}}" selected>{{$editprofil->kelasRef->kelas}} {{$editprofil->kelasRef->jurusan}} </option>
                                                     @foreach ( $kelas as $item )
                                                         <option value="{{$item->id_kelas}}">{{$item->kelas}} {{$item->jurusan}}</option>

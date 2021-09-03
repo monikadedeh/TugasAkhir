@@ -36,6 +36,11 @@
                                 <i class="fas fa-users"></i>
                                 <span>Siswa</span>
                             </a>
+                        </li> <li class="sidebar-item ">
+                            <a href="{{url('siswa/index2')}}" class='sidebar-link'>
+                                <i class="far fa-list-alt"></i>
+                                <span>Improt Data Siswa</span>
+                            </a>
                         </li>
                         <li class="sidebar-item ">
                             <a href="{{route('kelas.index')}}" class='sidebar-link'>
@@ -65,6 +70,12 @@
                             <a href="{{route('admin.kritik.index')}}" class='sidebar-link'>
                                 <i class="far fa-list-alt"></i>
                                 <span>Kritik & Saran</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="{{route('admin.data.alumni.index')}}" class='sidebar-link'>
+                                <i class="far fa-list-alt"></i>
+                                <span>Data Alumni</span>
                             </a>
                         </li>
                         <li class="sidebar-item has-sub">

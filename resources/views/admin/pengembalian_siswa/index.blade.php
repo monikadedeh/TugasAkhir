@@ -43,14 +43,16 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->peminjamanRef->siswaRef->nama_siswa}}</td>
                                 <td>{{$item->peminjamanRef->bukuRef->nama_buku}}</td>
-                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->created_at->isoFormat('dddd, D MMMM Y')}}</td>
                                     {{-- @if($item->status == 1)
                                     <td>Belum Dikembalikan</td>
                                     @endif
                                     @if($item->status == 0)
                                     <td>Dikembalikan</td>
                                     @endif --}}
-                                <td>{{$item->denda}}</td>
+                                <td>Rp number_format({{$item->denda}},'2','.','.')</td>
+
+
                                 <td>
                                     <form action="{{route('pengembalian.siswa.delete', $item->id_pengembalian_siswa)}}" id_pengembalian_siswa="delete{{$item->id}}" onsubmit="return confirm('yakin ingin menghapus?')" class="d-inline" method="POST">
                                         @method('delete')

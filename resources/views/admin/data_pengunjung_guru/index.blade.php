@@ -42,7 +42,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->nama_lengkap}}</td>
                                 <td>{{$item->kegiatan}}</td>
-                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->created_at->isoFormat('dddd, D MMMM Y')}}</td>
                                 <td>
                                     <a href="{{route('admin.pengunjung.guru.detaildata', $item->id)}}" class="btn mx-auto btn-primary mb-3"><i class="fas fa-eye"></i></i></a>
                                 </td>

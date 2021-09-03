@@ -69,6 +69,9 @@ Route::get('guru/detail/{id}', 'admin\GuruController@detail')->name('guru.detail
 Route::get('siswa/index', 'admin\SiswaController@index')->name('siswa.index')->middleware('CekLoginAdmin');
 Route::delete('siswa/delete/{id}', 'admin\SiswaController@delete')->name('siswa.delete');
 Route::get('siswa/detail/{id}', 'admin\SiswaController@detail')->name('siswa.detaildata');
+//coba import excel
+Route::get('siswa/index2', 'admin\SiswaController@index2')->name('siswa.index2');
+Route::post('siswa/import_excel', 'admin\SiswaController@import_excel');
 
 
 //Buku
@@ -156,6 +159,10 @@ Route::get('admin/laporan/index', 'admin\LaporanController@index')->name('admin.
 
 //Laporan Peminjaman siswa
 Route::get('admin/laporan/peminjaman/index', 'admin\LaporanPeminjamanController@index')->name('admin.laporan.peminjaman.index')->middleware('CekLoginAdmin');
+
+//Data Alumni
+Route::get('admin/data/almuni/index', 'admin\DataAlumnContoller@index')->name('admin.data.alumni.index')->middleware('CekLoginAdmin');
+
 
 
 

@@ -38,7 +38,7 @@ class User extends Authenticatable
     // ];
 
     protected $table = 'users';
-    protected $fillable = ['nama_siswa', 'username', 'password', 'timestamps'];
+    protected $fillable = ['nama_siswa', 'jenis_kelamin', 'alamat', 'username', 'password', 'no_telepon', 'foto', 'email_siswa', 'id_kelas'];
     protected $hidden = [
         'password',
     ];
